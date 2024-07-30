@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="productStyle.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript"
+		src="https://platform-api.sharethis.com/js/sharethis.js#property=649476bd7674a900126114fc&product=inline-share-buttons&source=platform"
+		async="async"></script>
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	</head>
+	<body onload="checkURL()">
+	
+		<div class="pageContainer">
+			<div class="menuContainer">
+                <nav class="menuBar">
+                    <div class="menu">
+                        <img src="images/menu.png" class="pic" onclick="openNav()">
+                    </div>
+                    <div class="icon">
+                            <img src="images/logo.png" class="logo-pic" onclick="goBackToOriginalPage()">
+                    </div>
+                    <div class="searchBar">
+                        <form class="searchForm" action="search.html" onsubmit="modifySearchUrl(event)">
+                            <input type="text" placeholder="Search" name="search">
+                            <div class="searchBarButton">
+                                <button type="submit" class="submitButton">
+                                    <img src="images/search.png" class="search-pic">
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="liked">
+                        <img src="images/heart.png" class="pic" onClick="toggleLikedList(1)">
+                    </div>
+                    <div class="profile" id="profileImage">
+                        <img src="images/user.png" class="user_pic" id="profilePicture" onclick="toggleMenu()">
+                    </div>
+
+                    <div class="userMenuWrap" id="subMenu">
+                        <div class="userMenu">
+                            <div class="userInfo" id="userInfoPicture">
+                                <img src="images/user.png" class="userMenu-pic" id="userMenuInfoPicture" >
+                                <p id="UserName">User</p>
+                            </div>
+                            <hr>
+							
+							<div class="ProfileOptional" id="OptionalAdmin" onClick="OpenAdminMenu()">
+                                <img src="images/admin.png" class="pic">
+                                <p>Admin Menu</p>
+                                <span>></span>
+							</div>
+							
+							<div class="ProfileOptional" id="OptionalEditProduct" onClick="OpenProductEditor()">
+                                <img src="images/editProduct.png" class="pic">
+                                <p>Edit Product</p>
+                                <span>></span>
+							</div>
+							
+							<div class="ProfileOptional" id="OptionalEditProfile" onClick="openEditor()">
+                                <img src="images/edit.png" class="pic">
+                                <p>Edit Profile</p>
+                                <span>></span>
+							</div>
+
+
+                            <a class="ProfileOptional" id="LoginButton" onclick="openForm()">
+                                <img src="images/enter.png" class="pic">
+                                <p>Login</p>
+                                <span>></span>
+                            </a>
+							
+							
+							
+							<div class="ProfileOptional" id="OptionalLogout" onClick="disconnect()">
+                                <img src="images/exitAccount.png" class="pic">
+                                <p>Logout</p>
+                                <span>></span>
+							</div>
+                        </div>
+                    </div>
+					
+					<div class="likedListWrap" id="likedListMenu">
+						
+					</div>
+
+                    <div class="sidenav" id="mySidenav">
+                        <div class="butonX">
+                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times;</a>
+                        </div>
+
+                        <div class="menuElements">
+                            <a onclick="goToProduct('gendre=female')" class="buttonss">
+                                <p>Women</p>
+                                <span>></span>
+                            </a>
+                            <hr>
+                            <a onclick="goToProduct('gendre=male')" class="buttonss">
+                                <p>Men</p>
+                                <span>></span>
+                            </a>
+                            <hr>
+                            <a onclick="openSeasonNav()" class="buttonss">
+                                <p>Season</p>
+                                <span>></span>
+                            </a>
+                            <hr>
+                            <a onclick="openCatNav()" class="buttonss">
+                                <p>Categories</p>
+                                <span>></span>
+                            </a>
+                            <hr>
+
+                        </div>
+                    </div>
+
+					<div class="seasonNav" id="mySeasonNav">
+						<a onclick="goToProduct('season=primavara')" class="buttonss">
+							<p>Spring</p>
+							<span>></span>
+						</a>
+						<hr>
+						<a onclick="goToProduct('season=vara')" class="buttonss">
+							<p>Summer</p>
+							<span>></span>
+						</a>
+						<hr>
+						<a onclick="goToProduct('season=toamna')" class="buttonss">
+							<p>Fall</p>
+							<span>></span>
+						</a>
+						<hr>
+						<a onclick="goToProduct('season=iarna')" class="buttonss">
+							<p>Winter</p>
+							<span>></span>
+						</a>
+						<hr>
+					</div>
+
+					<div class="catNav" id="myCatNav">
+						<a onclick="goToProduct('category=casual')" class="buttonss">
+							<p>Casual</p>
+							<span>></span>
+						</a>
+						<hr>
+						<a onclick="goToProduct('category=office')" class="buttonss">
+							<p>Office</p>
+							<span>></span>
+						</a>
+						<hr>
+						<a onclick="goToProduct('category=elegant')" class="buttonss">
+							<p>Elegant</p>
+							<span>></span>
+						</a>
+						<hr>
+						<a onclick="goToProduct('category=sport')" class="buttonss">
+							<p>Sport</p>
+							<span>></span>
+						</a>
+						<hr>
+					</div>
+                </nav>
+
+                <div class="loginPopup" id="myForm">
+                    <form class="loginContainer">
+                    <h1>Login</h1>
+                
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email">
+                
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw">
+                
+					<button type="button" class="register-button" onClick="OpenForgotPasswordPopup()">Forgot password?</button>
+                    <button type="button" class="btn" onClick="checkLogin()">Login</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+					
+					<h2>Don't have an account?</h2> <button type="button" class="register-button" onClick="OpenRegisterPopup()">Create one now!</button>
+                    </form>
+                </div>
+				
+				<div class="registerPopup" id="myRegisterForm">
+					<form class="loginContainer">
+					<div class="RegisterText">
+						<h1>Register</h1>
+					</div>
+						
+						<label for="Mail"><b>Email</b></label>
+						<input type="text" placeholder="Enter Email" name="Mail">
+						
+						<label for="FirstName"><b>First Name</b></label>
+						<input type="text" placeholder="Enter First Name" name="FirstName">
+						
+						<label for="LastName"><b>Last Name</b></label>
+						<input type="text" placeholder="Enter Last Name" name="LastName">
+						
+						<label for="Password"><b>Password</b></label>
+						<input type="password" placeholder="Enter Password" name="Password">
+						
+						<button type="button" class="btn" onClick="registerUser()">Register</button>
+						<button type="button" class="btn cancel" onclick="CloseRegisterPopup()">Close</button>
+					</form>
+				</div>
+				<div class="registerPopup" id="forgotPasswordForm">
+					<form class="loginContainer">
+					<div class="titleForgotPassword">
+						<h2>Forgot Password</h2>
+					</div>
+						
+						<label for="ForgotMail"><b>Email</b></label>
+						<input type="text" placeholder="Enter Email" name="ForgotMail">
+						
+						<button type="button" class="btn" onClick="resetPassword()">Send mail</button>
+						<button type="button" class="btn cancel" onclick="CloseForgotPasswordPopup()">Close</button>
+					</form>
+				</div>
+            </div>
+			
+			
+			
+			
+			<div class="ProductInfo">
+				<div class="Organizer">
+					<div class="gallery">
+						<div class="thumbnail">
+							<img src="images/thumbnail.png" class="thumbnailClass" id="thumb">
+						</div>
+						<div class="images" id="imagesContainerId">
+							
+						</div>
+					</div>
+					<div class="sharethis-container">
+						<div class="sharethis-inline-share-buttons"></div>
+					</div>
+					<div class="Information">
+						<div class="rating-container" id="ratingId">
+							<div class="rating">
+							<span class="star" data-value="5">&#9733;</span>
+							<span class="star" data-value="4">&#9733;</span>
+							<span class="star" data-value="3">&#9733;</span>
+							<span class="star" data-value="2">&#9733;</span>
+							<span class="star" data-value="1">&#9733;</span>
+							</div>
+							<img src="images/like.png" alt="Like" class="like-icon" id="likeIcon" onClick="userLiked()">
+						</div>
+						
+						<div class="MainName">
+						 <h2 id="ProductName">Product name</h2>
+						</div>
+						<div class="AvailableSizes">
+							<h2 id="ProductSizes">Available sizes</h2>
+						</div>
+						<div class="button-container">
+								  <button class="go-to-seller-button" onClick="GoToSellerPage()">Go To Seller</button>
+						</div>
+						
+						<div class="details">
+							<div class="details-item">
+							  <div class="key">Gender:</div>
+							  <div class="value" id="ProductGender">Product Gender</div>
+							</div>
+							<div class="details-item">
+							  <div class="key">Rating:</div>
+							  <div class="value" id="ProductRating">Product rating</div>
+							</div>
+							<div class="details-item">
+							  <div class="key">Number of Ratings:</div>
+							  <div class="value" id="ProductNrRatings">Product number of ratings</div>
+							</div>
+							<div class="details-item">
+							  <div class="key">Price:</div>
+							  <div class="value" id="ProductPrice">Product price</div>
+							</div>
+							<div class="details-item">
+							  <div class="key">Season:</div>
+							  <div class="value" id="ProductSeason">Product season</div>
+							</div>
+							<div class="details-item">
+							  <div class="key">Style:</div>
+							  <div class="value" id="ProductStyle">Style</div>
+							</div>
+						</div>
+						
+						
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			<div class="scroll-editor" id="PopUpEditor">
+				<button type="exitFormular" class="exitButton" onclick="closeEditor()"> <img src ="images/exit.png" class="ImageExit" alt="buttonpng" bordero="0" /> </button>
+				
+					
+					<div class="EditingMenu" id="SubEditorMenu">
+						
+						<label for="emailChange"><b>Email:</b></label>
+						<input type="text" id="emailChange" class="edit-text"  placeholder="Enter Email" />
+                
+						<label for="firstChange"><b>First Name:</b></label>
+						<input type="text" id="firstChange" class="edit-text"  placeholder="First Name" />
+						
+						<label for="lastChange"><b>Last Name:</b></label>
+						<input type="text" id="lastChange" class="edit-text"  placeholder="Last Name" />
+						
+						<label for="passwordChange"><b>Password:</b></label>
+						<input type="text" id="passwordChange" class="edit-text" placeholder="Password" />
+						
+						<label for="pictureChange"><b>Profile Picture Link:</b></label>
+						<input type="text" id="pictureChange" class="edit-text"  placeholder="Profile Picture" />
+						
+						<button id="saveButton" onclick="updateUserProfile()">Save Changes</button>
+						
+					</div>
+			</div>
+			
+			<div class="ProductEditWindow" id="PopUpEditWindow">
+				<button type="exitAdminEdit" class="exitButton" onclick="closeAdminEdit()"> <img src ="images/exit.png" class="ImageExit" alt="buttonpng" bordero="0" /> </button>
+				<div class="ScrollableAdminEdit" id="ScrollableAdminEditId">
+					<div class="AdminEdit" id="AdminEditId">
+						<button id="editButton" onClick="editProductdata()">Edit Product</button>
+						<div class="ProductChange" id="ProductChangeId">
+							<label for="nameUpdate"><b>Name:</b></label>
+							<input type="text" id="nameUpdate" class="update-text"  placeholder="Enter Product Name" />
+					
+							<label for="sizeUpdate"><b>Sizes:</b></label>
+							<input type="text" id="sizeUpdate" class="update-text"  placeholder="Enter available sizes" />
+							
+							<label for="genderUpdate"><b>Gender:</b></label>
+							<input type="text" id="genderUpdate" class="update-text"  placeholder="Enter gender" />
+							
+							<label for="priceUpdate"><b>Price:</b></label>
+							<input type="text" id="priceUpdate" class="update-text" placeholder="Enter price" />
+							
+							<label for="seasonUpdate"><b>Season:</b></label>
+							<input type="text" id="seasonUpdate" class="update-text"  placeholder="Enter season" />
+							
+							<label for="styleUpdate"><b>Style:</b></label>
+							<input type="text" id="styleUpdate" class="update-text"  placeholder="Enter style" />
+						</div>
+							<button id="deleteButton" onClick="deleteProductData()">Delete product</button>
+						<div class="ProductConfirm" id="ConfirmDeleteId">
+							<input type="text" id="deleteConfirmation" class="update-text"  placeholder="Type 'delete' to delete this product" />
+						</div>						
+					</div>
+				</div>
+			</div>
+			
+			<div class="Adminwindow" id="PopUpAdminWindow">
+				<div>
+				<button type="exitAdmin" class="exitButton" onclick="closeAdminWindow()"> <img src ="images/exit.png" class="ImageExit" alt="buttonpng" /> </button>
+				</div>
+				
+			<div class="ScrollableAdmin" id="IdScrollableAdmin">	
+				
+				<div class="AdminOptions" id="AdminOptionsMenu">
+					
+					<div>
+					<button type="button" class="newEntryButton" id="ButtonAddShoe"onclick="addNewShoe()">Add Shoe</button>
+					
+					<button type="button" class="newEntryButton" id="ButtonSubmitNew"onclick="SubmitNewShoe()">Submit Entry</button>
+					</div>
+					
+					<div class="ShoeFields" id="ShoeDataFields">
+						<input type="text" placeholder="Name">
+						<input type="text" placeholder="Link">
+						<input type="number" step="0.01" placeholder="Price">
+						<input type="text" placeholder="Photo link">
+						
+						<div class="Selections" id="SeasonSelection">
+							<select id="Season" name="Season">
+								<option value="" selected disabled>Season</option>
+								<option value="Vara"> Summer</option>
+								<option value="Toamna"> Autumn</option>
+								<option value="Iarna"> Winter</option>
+								<option value="Primavara"> Spring</option>
+								<option value="Tot anul"> Entire year</option>
+							</select>
+						</div>
+						
+						<div class="Selections" id="StyleSelection">
+							<select id="Style" name="Style">
+								<option value="" selected disabled>Style</option>
+								<option value="Casual"> Casual</option>
+								<option value="Formal"> Formal</option>
+								<option value="Office"> Office</option>
+								<option value="Sport"> Sport</option>
+							</select>
+						</div>
+						
+						<div class="RadioButtons" id="GenderRadio">
+							<label>
+								<input type="radio" name="gender" value="male"> Male
+							 </label>
+							 <label>
+								<input type="radio" name="gender" value="female"> Female
+							 </label>
+						</div>
+						
+						<div class="RadioButtons" id="ColorRadio">
+							<label>
+								<input type="radio" name="color" value="Rosu"> Red
+							 </label>
+							 <label>
+								<input type="radio" name="color" value="Galben"> Yellow
+							 </label>
+							 <label>
+								<input type="radio" name="color" value="Albastru"> Blue
+							 </label>
+							 <label>
+								<input type="radio" name="color" value="Negru"> Black
+							 </label>
+							 <label>
+								<input type="radio" name="color" value="Gri"> Grey
+							 </label>
+							 <label>
+								<input type="radio" name="color" value="Alb"> White
+							 </label>
+							 <label>
+								<input type="radio" name="color" value="Verde"> Green
+							 </label>
+							 <label>
+								<input type="radio" name="color" value="Portocaliu"> Orange
+							 </label>
+							 <label>
+								<input type="radio" name="color" value="Maro"> Brown
+							 </label>
+						</div>
+						
+					</div>	
+					
+					<div class="ShoeSizeField" id="ShoeSizeId">
+						<input type="text" placeholder="Insert shoe sizes separated by ',' ex: 43,44">
+					</div>
+					
+					<div>
+					<button type="button" class="ScrapperButton" id="ButtonScrapper" onclick="startScrapper()">Start Scrapper</button>
+					</div>
+					<div class="ScrapperField" id="ScrapperLinkField">
+						<input type="text" placeholder="Link for website to be scanned">
+					</div>
+				</div>
+			</div>	
+			</div>
+		</div>
+	
+		<script>
+			var SellersPage="";
+			const editingFields = document.querySelectorAll('.edit-text');
+			const SaveChangesButton = document.getElementById('saveButton');
+			
+			editingFields.forEach(function(editingField){
+				editingField.addEventListener('input', function(){
+					checkFields();
+				});
+			});
+			
+			
+			const thumbnail = document.getElementById("thumb");
+			const imagesContainer = document.getElementById("imagesContainerId");
+			const scaleFactor = 1.5;
+			let currentExpandedImage = null;
+			
+			thumbnail.addEventListener("click", () => {
+				if (currentExpandedImage) {
+		    		currentExpandedImage.remove();
+			    	currentExpandedImage = null;
+	     		 }
+			
+			  const expandedImage = document.createElement("img");
+			  expandedImage.src = thumbnail.src;
+			  expandedImage.classList.add("expanded-image");
+			  
+			  expandedImage.style.width = thumbnail.offsetWidth * scaleFactor + "px";
+			  expandedImage.style.height = thumbnail.offsetHeight * scaleFactor + "px";
+			  expandedImage.style.zIndex = '56';
+
+			  expandedImage.addEventListener("click", () => {
+				expandedImage.remove();
+				currentExpandedImage = null;
+			  });
+
+			  document.body.appendChild(expandedImage);
+			  
+			  currentExpandedImage = expandedImage;
+			  
+				document.body.style.display = "flex";
+				document.body.style.justifyContent = "center";
+				document.body.style.alignItems = "center";
+			});
+			const lowerScaleFactor=3.5;
+			imagesContainer.addEventListener("click", (event) => {
+			  if (event.target.classList.contains("lower-image")) {
+				if (currentExpandedImage) {
+				  currentExpandedImage.remove();
+				  currentExpandedImage = null;
+				}	
+	
+				const expandedImage = document.createElement("img");
+				expandedImage.src = event.target.src;
+				expandedImage.classList.add("expanded-image");
+
+				expandedImage.style.width = event.target.offsetWidth * lowerScaleFactor + "px";
+				expandedImage.style.height = event.target.offsetHeight * lowerScaleFactor + "px";
+				expandedImage.style.zIndex = '56';
+
+				expandedImage.addEventListener("click", () => {
+				  expandedImage.remove();
+				  currentExpandedImage = null;
+				});
+
+				document.body.appendChild(expandedImage);
+				currentExpandedImage = expandedImage;
+				
+				document.body.style.display = "flex";
+				document.body.style.justifyContent = "center";
+				document.body.style.alignItems = "center";
+			  }
+			});
+			
+			
+			const stars = document.querySelectorAll('.star');
+			
+			stars.forEach(star => {
+				star.addEventListener('click',function(){
+					const value = parseInt(this.getAttribute('data-value'));
+					
+					updateSelectedRating(value);
+					setActiveStars(value);
+				});
+			});
+			
+			function userLiked(){
+				const likedImage = document.getElementById('likeIcon');
+				
+				var shoeId;
+				var userId;
+				var currentURL = window.location.href;
+				var segments = currentURL.split('&');
+				var theUserId = segments[0].trim();
+				var userParts = theUserId.split('?');
+				var partUserId = userParts[1].trim();
+				var segmentUserId = partUserId.split('=');
+				userId = segmentUserId[1].trim();
+				var theShoeId = segments[1].trim();
+				var parts = theShoeId.split('=');
+				shoeId = parts[1].trim();
+				
+				fetch('http://localhost:8081/likeShoe', {
+					  method: 'POST',
+					  body: JSON.stringify({ userId,shoeId }),
+					  headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					  },
+					})
+					.then((response) => response.json())
+					.then((data) => {
+						if(data.message === 'Product liked'){
+							likedImage.src = 'images/liked.png';
+							var likedListWrap = document.getElementById('likedListMenu');
+							likedListWrap.innerHTML = '';
+							toggleLikedList(0);
+						} else if(data.message === 'Product unliked'){
+							likedImage.src = 'images/like.png';
+							var likedListWrap = document.getElementById('likedListMenu');
+							likedListWrap.innerHTML = '';
+							toggleLikedList(0);
+						} else {
+							displayPopup('There was an error, please try again later');
+						}
+					})
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+				
+				
+				
+				
+				if(likedImage.src.includes('images/liked.png')){
+					likedImage.src = 'images/like.png';
+				} else {
+					likedImage.src = 'images/liked.png';
+				}
+			}
+			
+			function modifySearchUrl(event){
+					event.preventDefault();
+					var currentURL= window.location.href;
+					var thisUserId;
+					
+					
+					var searchInput = document.querySelector('.searchForm input[name="search"]');
+					var searchValue = searchInput.value.trim();
+					if(searchValue===''){
+						return;
+					}
+					
+					var baseUrl = 'search.html';
+					var newUrl;
+					if(currentURL.includes('?id=')){
+						const segment=currentURL.split('=');
+						const theUsersId=segment[1].trim();
+						const parts=theUsersId.split('&');
+						const thisID=parts[0].trim();
+						thisUserId=thisID;
+						newUrl = baseUrl+'?id='+thisUserId+'&search='+encodeURIComponent(searchValue);
+					} else {
+					 newUrl=baseUrl+'?search='+encodeURIComponent(searchValue);
+					}
+					window.location.href = newUrl;
+					
+				}
+			
+			function setLikedStatus(value){
+				const likedImage = document.getElementById('likeIcon');
+				if(value === '1'){
+					likedImage.src = 'images/liked.png';
+				} else {
+					likedImage.src = 'images/like.png';
+				}
+			}
+			
+			function setActiveStars(value){
+				stars.forEach(star => {
+					const starValue = parseInt(star.getAttribute('data-value'));
+					if(starValue <= value){
+						star.classList.add('lit');
+					} else {
+						star.classList.remove('lit');
+					}
+				});
+			}
+			
+			function goToProduct(url) {
+
+					if(userId != -1) {
+						window.location.href = "search.html?" + "id=" + userId + "&" + url;
+					}
+					else window.location.href = "search.html?" + url;
+				}
+			
+			function OpenProductEditor(){
+				toggleMenu();
+				document.getElementById('PopUpEditWindow').style.display = 'flex';
+				placeShoeData();
+			}
+			
+			function closeLikedMenu(){
+					var likedListWrap = document.getElementById('likedListMenu');
+					let likedList = document.getElementById("likedListMenu");
+								if(likedList.classList.contains("open-liked-list")){
+									likedListWrap.innerHTML = '';
+									likedList.classList.toggle("open-liked-list");
+								}			
+			}
+			
+			function closeAdminEdit(){
+				document.getElementById('PopUpEditWindow').style.display = 'none';
+			}
+			
+			function editProductdata(){
+				var nameEdit = document.querySelector('input[id="nameUpdate"]');
+				var genderEdit = document.querySelector('input[id="genderUpdate"]');
+				var priceEdit = document.querySelector('input[id="priceUpdate"]');
+				var seasonEdit = document.querySelector('input[id="seasonUpdate"]');
+				var styleEdit = document.querySelector('input[id="styleUpdate"]');
+				var sizeEdit = document.querySelector('input[id="sizeUpdate"]');
+				
+				var name = nameEdit.value;
+				var gender = genderEdit.value;
+				var price = priceEdit.value;
+				var season = seasonEdit.value;
+				var style = styleEdit.value;
+				var size = sizeEdit.value;	
+				
+				if(gender !== 'male' && gender !== 'female' && gender !== 'Male' && gender !== 'Female' && gender!='MALE' && gender!='FEMALE'){
+					displayPopup('Invalid gender.');
+					return;
+				}
+				
+				if(!/^\d+(\.\d{1,2})?$/.test(price)){
+					displayPopup('Invalid price');
+					return;
+				}
+				
+				if(!['Vara', 'Primavara', 'Iarna', 'Toamna'].includes(season) && !['vara', 'primavara', 'iarna', 'toamna'].includes(season) && !['VARA', 'PRIMAVARA', 'IARNA', 'TOAMNA'].includes(season)){
+					displayPopup('Invalid season1');
+					return;
+				}
+				
+				if(!['Casual', 'Formal', 'Office', 'Sport'].includes(style) && !['casual', 'formal', 'office', 'sport'].includes(style) && !['CASUAL', 'FORMAL', 'OFFICE', 'SPORT'].includes(style)){
+					displayPopup('Invalid style');
+					return;
+				}
+				
+				var sizeArray = size.split(',');
+				var isValidSize = sizeArray.every(function (value) {
+				  return /^\d+$/.test(value.trim());
+				});
+				
+				if(!isValidSize){
+					displayPopup('Invalid sizes');
+					return;
+				}
+				
+				var shoeId;
+				var actualUserId;
+				var currentURL = window.location.href;
+				var segments = currentURL.split('&');
+				var theShoeId = segments[1].trim();
+				var parts = theShoeId.split('=');
+				shoeId = parts[1].trim();
+				
+				fetch('http://localhost:8081/updateShoe', {
+					  method: 'POST',
+					  body: JSON.stringify({ shoeId, name, gender, price, season, style, size }),
+					  headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					  },
+					})
+					.then((response) => response.json())
+					.then((data) => {
+						displayPopup(data.message);
+					})
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+				 loadProductData();
+			}
+			
+			
+			function placeShoeData(){
+				var shoeId;
+				var actualUserId;
+				var currentURL = window.location.href;
+				var segments = currentURL.split('&');
+				var theShoeId = segments[1].trim();
+				var parts = theShoeId.split('=');
+				shoeId = parts[1].trim();
+				
+				fetch('http://localhost:8081/shoeInfo', {
+					  method: 'POST',
+					  body: JSON.stringify({ actualUserId, shoeId }),
+					  headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					  },
+					})
+					.then((response) => response.json())
+					.then((data) => {
+						placeEditorShoeData(data.message);
+						placeEditorShoeSizes(data.sizes)
+					})
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+			}
+			
+			function placeEditorShoeData(value){
+				if(!value.includes('FailureToTakeData')){
+
+				const parts = value.split('|');
+				document.getElementById("nameUpdate").value=parts[0].trim();
+				document.getElementById("genderUpdate").value=parts[1].trim();
+				document.getElementById("priceUpdate").value=parts[4].trim();
+				document.getElementById("seasonUpdate").value=parts[6].trim();
+				document.getElementById("styleUpdate").value=parts[7].trim();
+
+				} else {
+				displayPopup("Cannot access shoe data, try again later");
+				}
+			}
+			
+			function placeEditorShoeSizes(sizes){
+				const integerArray = JSON.parse(sizes);
+				const result = createStringFromArray(integerArray);
+				document.getElementById("sizeUpdate").value=result.trim();
+			}
+			
+			function deleteProductData(){
+				var shoeId;
+				var currentURL = window.location.href;
+				var segments = currentURL.split('&');
+				var theShoeId = segments[1].trim();
+				var parts = theShoeId.split('=');
+				shoeId = parts[1].trim();
+				
+				const confirmInput = document.querySelector('input[id="deleteConfirmation"]');
+				const input=confirmInput.value.trim();
+				if(input === 'delete' || input === 'DELETE' || input === 'Delete'){
+					fetch('http://localhost:8081/delete', {
+					  method: 'POST',
+					  body: JSON.stringify({ shoeId }),
+					  headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					  },
+					})
+					.then((response) => response.json())
+					.then((data) => {
+						goBackToOriginalPage();
+						displayPopup(data.message);
+					})
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+					
+				} else {
+					displayPopup('Input is incorrect');
+				}
+			}
+			
+			function updateSelectedRating(value){
+				var shoeId;
+				var userId;
+				var currentURL = window.location.href;
+					var segments = currentURL.split('&');
+					var theUserId = segments[0].trim();
+					var userParts = theUserId.split('?');
+					var partUserId = userParts[1].trim();
+					var segmentUserId = partUserId.split('=');
+					userId = segmentUserId[1].trim();
+					
+					var theShoeId = segments[1].trim();
+					var parts = theShoeId.split('=');
+					shoeId = parts[1].trim();
+				fetch('http://localhost:8081/rating', {
+					  method: 'POST',
+					  body: JSON.stringify({ userId, shoeId, value }),
+					  headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					  },
+					})
+					.then((response) => response.json())
+					.then((data) => {
+						displayPopup(data.message);
+						loadProductData();
+					})
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+				
+			}
+			
+			function loadProductData(){
+			    var shoeId;
+				var actualUserId;
+				var currentURL = window.location.href;
+				if(currentURL.includes('?id=')){
+					var segments = currentURL.split('&');
+					var theShoeId = segments[1].trim();
+					var parts = theShoeId.split('=');
+					shoeId = parts[1].trim();
+					
+					var theUserId = segments[0].trim();
+					var userSegments = theUserId.split('=');
+					actualUserId = userSegments[1].trim();
+				} else {
+					var segments = currentURL.split('?');
+					var theShoeId = segments[1].trim();
+					var parts = theShoeId.split('=');
+					shoeId = parts[1].trim();
+				}	
+					fetch('http://localhost:8081/shoeInfo', {
+					  method: 'POST',
+					  body: JSON.stringify({ actualUserId, shoeId }),
+					  headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					  },
+					})
+					.then((response) => response.json())
+					.then((data) => {
+						parseShoeData(data.message);
+						parseShoeSize(data.sizes);
+					})
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+			}
+			
+			function parseShoeData(value){
+			
+			if(!value.includes('FailureToTakeData')){
+
+				const parts = value.split('|');
+				document.getElementById("ProductName").textContent=parts[0].trim();
+				document.getElementById("ProductGender").textContent=parts[1].trim();
+				document.getElementById("ProductRating").textContent=parts[2].trim();
+				document.getElementById("ProductNrRatings").textContent=parts[3].trim();
+				document.getElementById("ProductPrice").textContent=parts[4].trim()+' Lei';
+				SellersPage=parts[5].trim();
+				document.getElementById("ProductSeason").textContent=parts[6].trim();
+				document.getElementById("ProductStyle").textContent=parts[7].trim();
+				setActiveStars(parts[9].trim());
+				setLikedStatus(parts[10].trim());
+			} else {
+				displayPopup("Cannot access shoe data, try again later");
+			}
+				
+			}
+			
+			function createStringFromArray(array){
+				return array.join(', ');
+			}
+			
+			function parseShoeSize(sizes){
+				const integerArray = JSON.parse(sizes);
+				const result = createStringFromArray(integerArray);
+				document.getElementById("ProductSizes").textContent=result.trim();
+			}
+			
+			function GoToSellerPage(){
+				window.location.href = SellersPage;
+			}
+			
+			function loadImages(){
+				var currentURL = window.location.href;
+				var thisID;
+				const thumbnailImage = document.getElementById("thumbnailId");
+				const thumbImage= document.querySelector('.thumbnailClass');
+				
+				var currentURL = window.location.href;
+				if(currentURL.includes('?id=')){
+					var segments = currentURL.split('&');
+					var theShoeId = segments[1].trim();
+					var parts = theShoeId.split('=');
+					thisID = parts[1].trim();
+				} else {
+					var segments = currentURL.split('?');
+					var theShoeId = segments[1].trim();
+					var parts = theShoeId.split('=');
+					thisID = parts[1].trim();
+				}				
+				imagesContainer.innerHTML="";
+				
+				fetch('http://localhost:8081/images', {
+					method: 'POST',
+					body: JSON.stringify({ thisID }),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+				  .then((response) => response.json())
+				  .then((data) => {
+						const imageLinks=data;
+						
+						
+						for(let i=0;i<imageLinks.length;i++){
+							const imageLink=imageLinks[i];
+							
+							
+							if(i===0){
+								thumbImage.src = imageLink;
+							}else {
+								const normalImg = document.createElement("img");
+								normalImg.src=imageLink;
+								normalImg.classList.add("lower-image");
+								imagesContainer.appendChild(normalImg);
+							}
+							
+						}
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+				
+				loadProductData();
+			}
+			
+			function checkFields(){
+				let hasModifiedField = false;
+				
+				editingFields.forEach(function(editingField) {
+					if (editingField.value.trim() !== '') {
+					  hasModifiedField = true;
+					}
+				  });
+			  
+			  if (hasModifiedField) {
+				SaveChangesButton.style.display = 'block';
+			  } else {
+				SaveChangesButton.style.display = 'none';
+			  }
+			}
+		
+			function checkURL(){
+				var currentURL = window.location.href;
+				
+				if(currentURL.includes('id=')){
+					const segment=currentURL.split('=');
+					const usersId=segment[1].split('&');
+					const thisID=usersId[0].trim();
+					loginForId(thisID);
+				}
+				document.getElementById('saveButton').style.display = "none";
+				loadImages();
+				
+			}
+			
+			function checkLogin() {			
+				const emailInput = document.querySelector('input[name="email"]');
+				const passwordInput = document.querySelector('input[name="psw"]');
+				const email = emailInput.value;
+				const password = passwordInput.value;
+				
+				if (email === '') {
+					displayPopup('Please enter an email');
+					return;
+				}
+				if (password === '') {
+					displayPopup('Please enter a password');
+					return;
+				}
+				
+				fetch('http://localhost:8081/login', {
+					method: 'POST',
+					body: JSON.stringify({ email, password }),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+				  .then((response) => response.json())
+				  .then((data) => {
+						const message = data.message;
+					  if (message.includes('Successfully Logged |')) {
+						  displayPopup('Successfully Logged');
+						  findId(data.message);
+					  } else if (data.message === "User doesn't exist") {
+					 	  displayPopup("User doesn't exist");
+					  } else if (data.message === 'Incorrect password') {
+						  displayPopup('Incorrect password');
+					  } else {
+						  displayPopup('There was an error, try again.');
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+				  
+				  emailInput.value = '';
+				  passwordInput.value = '';
+			}
+			
+			function displayPopup(message) {
+			  const popup = document.createElement('div');
+			  popup.className = 'popup';
+			  popup.textContent = message;
+
+			  popup.style.position = 'fixed';
+			  popup.style.zIndex = '56';
+			  popup.style.top = '50%';
+			  popup.style.left = '50%';
+			  popup.style.transform = 'translate(-50%, -50%)';
+			  popup.style.background = 'rgba(0, 0, 0, 0.7)';
+			  popup.style.color = 'white';
+			  popup.style.padding = '10px';
+			  popup.style.borderRadius = '5px';
+
+			  document.body.appendChild(popup);
+
+			  setTimeout(() => {
+				document.body.removeChild(popup);
+			  }, 1000);
+			}
+			
+			function loginForId(value){
+				fetch('http://localhost:8081/refresh', {
+					method: 'POST',
+					body: JSON.stringify({ value }),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+				  .then((response) => response.json())
+				  .then((data) => {
+						const message = data.message;
+					  if (message.includes('Successfully Logged')) {
+						  userId=value;
+						  loginScript(data.message);
+						  checkAdminStatus(value);
+						  isLoggedIn=true;
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+			}
+			
+			function loginScript(value){
+				closeForm();
+				isLoggedIn = true;
+				parseName(value);
+				parseProfilePicture(value);
+				document.getElementById("OptionalEditProfile").style.display = "flex";
+				document.getElementById("OptionalLogout").style.display = "flex";
+				document.getElementById("LoginButton").style.display = "none";
+				document.getElementById("ratingId").style.display = "flex";
+			}
+			
+			function parseName(value){
+				const message = value;
+				const parts = message.split('|')
+				const name = parts[1].trim();
+				userName = name;
+				if(message.includes('[A]')){
+					isAdmin = true;
+					const privilege = parts[2].trim();
+					const concatenated = name + privilege;
+					changeUserName(concatenated);
+				} else {
+					changeUserName(name);
+				}
+				
+			}
+			
+			function parseProfilePicture(value){
+				var profileImage = document.querySelector('.profile .user_pic');
+				var menuImage = document.querySelector('.userInfo .userMenu-pic');
+				var parts=value.split('|--|--|--|');
+				if(parts.length > 1){
+					var imageURL = parts[1];
+					profileImage.src = imageURL;
+					menuImage.src = imageURL;
+					resizeProfilePicture();
+				} else {
+					profileImage.src = "images/user.png";
+					menuImage.src = "images/user.png";
+				}
+				
+			}
+			
+			function resizeProfilePicture(){
+				document.getElementById("profileImage").style.borderRadius = '20%';
+				document.getElementById("profileImage").style.overflow = 'hidden';
+				document.getElementById("userInfoPicture").style.borderRadius = '20%'
+				document.getElementById("userInfoPicture").style.overflow = 'hidden'
+				
+				
+				document.getElementById("profilePicture").style.objectFit = 'cover';
+				document.getElementById("userMenuInfoPicture").style.objectFit = 'cover';
+			}
+			
+			function checkAdminStatus(value){
+				fetch('http://localhost:8081/checkAdmin', {
+					method: 'POST',
+					body: JSON.stringify({ value }),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+					.then((response) => response.json())
+					.then((data) => {
+						const message = data.message;
+					  if (message === 'TRUE') {
+						  isAdmin=true;
+						  addAdminTag();
+					  } else {
+						isAdmin=false;
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+			}
+			
+			function updateUserProfile(){
+				var emailInput = document.querySelector('input[id="emailChange"]');
+				var firstInput = document.querySelector('input[id="firstChange"]');
+				var lastInput = document.querySelector('input[id="lastChange"]');
+				var passwordInput = document.querySelector('input[id="passwordChange"]');
+				var profileInput = document.querySelector('input[id="pictureChange"]');
+				
+				var currentURL = window.location.href;
+				var thisID = currentURL.split('?')[1].split('&')[0].split('=')[1];
+				userId=thisID;
+
+				const id = thisID;
+				
+				
+				const email = emailInput.value;
+				const firstName = firstInput.value;
+				
+				const lastName = lastInput.value;
+				
+				const password = passwordInput.value;
+				
+				var picture = profileInput.value;				
+				
+				if (picture === '') {
+					picture = 'none';
+				}
+				
+				if (email === '') {
+					displayPopup('Please enter an email');
+					return;
+				}
+				if (firstName === '') {
+					displayPopup('Please enter you first name');
+					return;
+				}
+				if (lastName === '') {
+					displayPopup('Please enter your last name');
+					return;
+				}
+				if (password === '') {
+					displayPopup('Please enter a password');
+					return;
+				}
+				
+				if(password.length < 6){
+					displayPopup('New password is too short');
+					return;
+				}
+				
+				
+				fetch('http://localhost:8081/update', {
+					method: 'POST',
+					body: JSON.stringify({ id, email, firstName, lastName, password, picture}),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+				  .then((response) => response.json())
+				  .then((data) => {
+						const message = data.message;
+					  if (message.includes('Successfully Updated | ')) {
+						  displayPopup('Successfully Updated');
+						  getUserData();
+						  parseProfilePicture(message);
+						  parseName(message);
+						  checkAdminStatus(id);
+					  } else {
+						  displayPopup('There was an error, try again.');
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+				  
+				  emailInput.value = '';
+				  passwordInput.value = '';
+				  firstInput = '';
+				  lastInput = '';
+				  profileInput = '';
+			}
+			
+			function addAdminTag(){
+				var messageElement=document.getElementById('UserName');
+				var currentValue = messageElement.textContent;
+				var newValue = currentValue + '[A]';
+				messageElement.textContent = newValue;
+				document.getElementById('OptionalAdmin').style.display= "flex";
+				document.getElementById('OptionalEditProduct').style.display= "flex";
+			}
+			
+			function disconnect(){
+				toggleMenu();
+				isLoggedIn = false;
+				changeUserName('User')
+				displayPopup('Successfully Logged out');
+				logoutScript();
+			}
+			
+			function logoutScript(){
+				var currentURL = window.location.href;
+				var urlParts = currentURL.split('?');
+				var baseUrl = urlParts[0];
+				var queryParams = urlParts[1] ? urlParts[1].split('&') : [];
+				var newQueryParams = [];
+
+				for (var i = 0; i < queryParams.length; i++) {
+				  var param = queryParams[i];
+				  if (!param.startsWith('id=')) {
+					newQueryParams.push(param);
+				  }
+				}
+
+				var newURL = baseUrl + (newQueryParams.length > 0 ? '?' + newQueryParams.join('&') : '');
+				window.location.href = newURL;
+				document.getElementById("OptionalEditProfile").style.display = "none";
+				document.getElementById("OptionalLogout").style.display = "none";
+				document.getElementById("LoginButton").style.display = "flex";
+			}
+			
+			function getUserData(){
+					var currentURL = window.location.href;
+					var thisID = currentURL.split('?')[1].split('&')[0].split('=')[1];
+					userId=thisID;
+					isLoggedIn=true;
+					const actualID = thisID;
+					fetch('http://localhost:8081/userInfo', {
+					  method: 'POST',
+					  body: JSON.stringify({ actualID }),
+					  headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					  },
+					})
+					.then((response) => response.json())
+					.then((data) => {
+						parseData(data.message);
+					})
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+			}
+			
+			function parseData(value){
+				const parts = value.split('|');
+				document.getElementById("emailChange").value=parts[0].trim();
+				document.getElementById("firstChange").value=parts[1].trim();
+				if(parts[2].trim() === '[A]'){
+					document.getElementById("lastChange").value=parts[3].trim();
+					document.getElementById("passwordChange").value=parts[4].trim();
+					document.getElementById("pictureChange").value=parts[5].trim();
+				} else {
+					document.getElementById("lastChange").value=parts[2].trim();
+					document.getElementById("passwordChange").value=parts[3].trim();
+					document.getElementById("pictureChange").value=parts[4].trim();
+				}
+				
+			}
+			
+			function goBackToOriginalPage() {
+				var currentURL= window.location.href;
+				
+				var queryParam = window.location.search;
+				
+				var homeURL = "";
+				if(currentURL.includes('id=')){
+					const segment=currentURL.split('=');
+					const parts=segment[1].split('&');
+					const thisID=parts[0].trim();
+					newURL = "index.html?id="+thisID;
+					window.location.href = newURL;
+				} else {
+					newURL = "index.html";
+					window.location.href = newURL;
+				}
+				
+				
+			}
+			
+			function findId(value){
+				const message = value;
+				const parts = message.split('|');
+				const id = parts[1].trim();
+				userId=id;
+				newLoggedPage(id);
+			}
+			
+			function newLoggedPage(value){
+				var currentURL= window.location.href;
+				var segments = currentURL.split('?')
+				var origin = segments[0].trim();
+				var partialURL = origin+'?id='+value;
+				var theShoeId = segments[1].trim();
+				var newURL = partialURL+'&'+theShoeId;
+				
+				window.location.href = newURL;
+			}
+			
+			function toggleMenu(){
+                subMenu.classList.toggle("open-menu");
+				closeLikedMenu();
+            }
+
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "300px";
+            }
+			
+			function openSeasonNav() {
+				closeCatNav();
+
+				setTimeout(function() {
+        			document.getElementById("mySeasonNav").style.width = "300px";
+    			}, 500);
+            }
+
+			function openCatNav() {
+				closeSeasonNav();
+				setTimeout(function() {
+        			document.getElementById("myCatNav").style.width = "300px";
+    			}, 500);
+            }
+			
+			function closeSeasonNav() {
+                document.getElementById("mySeasonNav").style.width = "0";
+            }
+
+			function closeCatNav() {
+                document.getElementById("myCatNav").style.width = "0";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+
+            function openForm() {
+				closeEditor();
+				toggleMenu();
+                document.getElementById("myForm").style.display = "block";
+            }
+
+            function closeForm() {
+                document.getElementById("myForm").style.display = "none";
+            }
+			
+			function OpenRegisterPopup(){
+				closeForm();
+				document.getElementById("myRegisterForm").style.display = "block";
+			}
+			
+			function CloseRegisterPopup(){
+				document.getElementById("myRegisterForm").style.display = "none";
+			}
+			
+			function addNewShoe(){
+				var textInput = document.getElementById("ShoeDataFields");
+				document.getElementById('ButtonScrapper').style.marginTop = '35px';
+				document.getElementById('ShoeDataFields').style.display='grid';
+				document.getElementById('ButtonSubmitNew').style.display='flex';
+				document.getElementById('ButtonAddShoe').style.display='none';
+				document.getElementById('ShoeSizeId').style.display='flex';
+			}
+			
+			function getShoeSizes(){
+				var shoeSizeInput = document.querySelector('#ShoeSizeId input');
+				var shoeSizesString = shoeSizeInput.value;
+				var shoeSizesArray = shoeSizesString.split(',');
+				shoeSizesArray = shoeSizesArray.map(function(size) {return size.trim();});
+				return shoeSizesArray;
+			}
+			
+			function validateShoeInputs(shoeData){
+				for(const key in shoeData){
+					if (shoeData.hasOwnProperty(key) && !shoeData[key]) {
+					  return false;
+					}
+				}
+				return true;
+			}
+			
+			function SubmitNewShoe(){
+				var shoeData = {
+					name: document.querySelector('#ShoeDataFields input[placeholder="Name"]').value,
+					link: document.querySelector('#ShoeDataFields input[placeholder="Link"]').value,
+					price: document.querySelector('#ShoeDataFields input[placeholder="Price"]').value,
+					photoLink: document.querySelector('#ShoeDataFields input[placeholder="Photo link"]').value,
+					season: document.getElementById("Season").value,
+					style: document.getElementById("Style").value,
+					gender: document.querySelector('input[name="gender"]:checked').value,
+					color: document.querySelector('input[name="color"]:checked').value,
+					sizes: getShoeSizes()
+				  };
+				  
+				  isValid = validateShoeInputs(shoeData);
+				  if(!isValid){
+					displayPopup("Please insert values in each field");
+					return;
+				  }
+				  
+				  fetch('http://localhost:8081/addShoe', {
+					method: 'POST',
+					body: JSON.stringify({ shoeData }),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+				  .then((response) => response.json())
+				  .then((data) => {
+					  if (data.message === 'Success') {
+						  displayPopup('Shoe added successfully');
+					  } else {
+						  displayPopup('One or more sizes are not valid');
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+			}
+			
+			function startScrapper(){
+				var scrapperInputField = document.getElementById('ScrapperLinkField').querySelector('input');
+				var linkValue = scrapperInputField.value;
+				
+				if(linkValue===''){
+					displayPopup('Please place a link').
+					return;
+				}
+				
+				fetch('http://localhost:8081/scrapper', {
+					method: 'POST',
+					body: JSON.stringify({ linkValue }),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+				  .then((response) => response.json())
+				  .then((data) => {
+					  if (data.message === 'Success') {
+						  closeAdminWindow();
+						  displayPopup('Scrapper executed successfully');
+					  } else {
+						  displayPopup('There was an error, try again.');
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+				
+			}
+			
+			function OpenAdminMenu(){
+				toggleMenu();
+				document.getElementById('PopUpAdminWindow').style.display = 'flex';
+			}
+			
+			function closeAdminWindow(){
+				document.getElementById('PopUpAdminWindow').style.display = 'none';
+			}
+			
+			function OpenForgotPasswordPopup(){
+				closeForm();
+				document.getElementById("forgotPasswordForm").style.display = "block";
+			}
+			
+			function CloseForgotPasswordPopup(){
+				document.getElementById("forgotPasswordForm").style.display = "none";
+			}
+			
+			function resetPassword(){
+				closeForm();
+				const emailInput = document.querySelector('input[name="ForgotMail"]');
+				const email = emailInput.value;
+				
+				if (email === '') {
+					displayPopup('Please enter an email');
+					return;
+				}
+				
+				fetch('http://localhost:8081/resetPassword', {
+					method: 'POST',
+					body: JSON.stringify({email}),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+				  .then((response) => response.json())
+				  .then((data) => {
+					  if (data.message === 'An email has been sent with your password!') {
+						  CloseForgotPasswordPopup();
+						  displayPopup('An email has been sent with your password!');
+					  } else if (data.message === "There is no account with this email") {
+					 	  displayPopup("There is no account with this email");
+					  } else {
+						  displayPopup('There was an error, try again.');
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+				  
+				  emailInput.value = '';
+			}
+			
+			function registerUser(){
+				closeForm();
+				const emailInput = document.querySelector('input[name="Mail"]');
+				const firstNameInput = document.querySelector('input[name="FirstName"]');
+				const lastNameInput = document.querySelector('input[name="LastName"]');
+				const passwordInput = document.querySelector('input[name="Password"]');
+				const email = emailInput.value;
+				const firstName = firstNameInput.value;
+				const lastName = lastNameInput.value;
+				const password = passwordInput.value;
+				
+				if (email === '') {
+					displayPopup('Please enter an email');
+					return;
+				}
+				if (firstName === '') {
+					displayPopup('Please enter you first name');
+					return;
+				}
+				if (lastName === '') {
+					displayPopup('Please enter your last name');
+					return;
+				}
+				if (password === '') {
+					displayPopup('Please enter a password');
+					return;
+				}
+				
+				fetch('http://localhost:8081/register', {
+					method: 'POST',
+					body: JSON.stringify({ firstName, lastName, email, password }),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+				  .then((response) => response.json())
+				  .then((data) => {
+					  if (data.message === 'Successfully Registered') {
+						  CloseRegisterPopup();
+						  displayPopup('Successfully Registered');
+					  } else if (data.message === "Email already in use") {
+					 	  displayPopup("Email already in use");
+					  } else if (data.message === 'Incorrect password') {
+						  displayPopup('Password must have at least 6 characters');
+					  } else {
+						  displayPopup('There was an error, try again.');
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+				  
+				  emailInput.value = '';
+				  passwordInput.value = '';
+				  firstNameInput.value = '';
+				  lastNameInput.value = '';
+			}
+			
+			function openEditor(){
+				getUserData();
+				toggleMenu();
+				document.getElementById('PopUpEditor').style.display ="block";
+			}
+			
+			function closeEditor(){
+				document.getElementById('PopUpEditor').style.display ="none";
+				document.getElementById('saveButton').style.display ="none";
+			}
+			
+			function changeUserName(value){
+				var messageElement=document.getElementById('UserName');
+				messageElement.textContent=value;
+			}
+			
+			function addAdminTag(){
+				var messageElement=document.getElementById('UserName');
+				var currentValue = messageElement.textContent;
+				var newValue = currentValue + '[A]';
+				messageElement.textContent = newValue;
+				document.getElementById('OptionalAdmin').style.display= "flex";
+				document.getElementById('OptionalEditProduct').style.display= "flex";
+			}
+			
+			function createProductClickHandler(productId) {
+				  return function () {
+				  var currentURL = window.location.href;
+					if (currentURL.includes('id=')) {
+					  const segment = currentURL.split('=');
+					  const theUserId = segment[1].trim();
+					  var partsUser = theUserId.split('&');
+					  thisID = partsUser[0].trim();
+					  thisUserId = thisID;
+					  userId = thisID;
+					  goingURL = "product.html?id=" + thisID + "&shoeId=" + productId;
+					  window.location.href = goingURL;
+					} else {
+					  goingURL = "product.html?shoeId=" + productId;
+					  window.location.href = goingURL;
+					}
+				  }
+				}
+				
+				
+				function toggleLikedList(value){
+				var likedListWrap = document.getElementById('likedListMenu');
+				var currentURL = window.location.href;
+				var userId;
+				var currentURL = window.location.href;
+				var segments = currentURL.split('&');
+				var theUserId = segments[0].trim();
+				var userParts = theUserId.split('?');
+				var partUserId = userParts[1].trim();
+				var segmentUserId = partUserId.split('=');
+				userId = segmentUserId[1].trim();
+				const actualID = userId;
+				
+				fetch('http://localhost:8081/getLiked', {
+					method: 'POST',
+					body: JSON.stringify({ actualID }),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+				  .then((response) => response.json())
+				  .then((data) => {
+					  if(data.hasOwnProperty('names') && data.hasOwnProperty('photos')){
+						const names = data.names;
+						const photos = data.photos;
+						const receivedId = data.ids;
+						
+						for(var i = 0; i < names.length; i++){
+							var productDiv = document.createElement('div');
+							productDiv.classList.add('likedList');
+							
+							var image=document.createElement('img');
+							image.classList.add('likedPhoto');
+							image.src=photos[i] || 'images/cart.png';
+							console.log(receivedId[0]);
+							
+							var name=document.createElement('p');
+							name.id='productName';
+							name.textContent=names[i];
+							
+							
+							productDiv.addEventListener('click', createProductClickHandler(receivedId[i]));
+							
+							productDiv.appendChild(image);
+							productDiv.appendChild(name);
+							
+							likedListWrap.appendChild(productDiv);
+						}
+						if(value === 1){
+						  if (subMenu.classList.contains("open-menu")) {
+								  subMenu.classList.remove("open-menu");
+								}
+								let likedList = document.getElementById("likedListMenu");
+								if(likedList.classList.contains("open-liked-list")){
+									likedListWrap.innerHTML = '';
+								}
+								likedList.classList.toggle("open-liked-list");
+						}
+					  
+					  } else {
+						displayPopup('There was an error, please try again later');
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+				  
+				  
+				  
+				}
+				
+				function toggleLikedMenu(){
+					let likedList = document.getElementById("likedListMenu");
+								if(likedList.classList.contains("open-liked-list")){
+									likedListWrap.innerHTML = '';
+								}
+								likedList.classList.toggle("open-liked-list");
+				}
+		</script>
+	</body>
+
+</html>

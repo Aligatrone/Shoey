@@ -1,0 +1,999 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.pageContainer{
+    width: 100%;
+    display: block;
+}
+
+.menuContainer{
+    width: 100%;
+    background: #eceaff;
+    color: #525252;
+    justify-content: center;
+    align-items: center;
+}
+
+.pic{
+    width: auto;
+    height: 30px;
+}
+
+.user_pic{
+    width: auto;
+    height: 30px;
+}
+
+.profile{
+    margin-right: 5%;
+    cursor: pointer;
+}
+
+.menu{
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+.menu img:hover {
+	text-decoration: underline;
+}
+
+.userMenu-pic{
+    width: auto;
+    height: 50px;
+}
+
+.logo-pic{
+    width: auto;
+    height: 50px;
+}
+
+.logo-pic:hover {
+	cursor: pointer;
+} 
+
+.liked{
+    cursor: pointer;
+}
+
+.search-pic{
+    width: auto;
+    vertical-align: middle;
+    height: 18px;
+    padding-left: 14px;
+}
+
+.submitButton{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.searchBar{
+    width: 250px;
+    height: 20px;
+    background-color: white;
+    border-radius: 30px;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+}
+
+.searchForm{
+    position:relative;
+    display: flex;
+}
+
+.searchForm > input {
+    flex: 1;
+    height: 20px;
+    vertical-align: middle;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 15px;
+}
+
+.menuBar{
+    background: #537FE7;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.userMenuWrap{
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+	z-index: 52;
+}
+
+.userMenuWrap.open-menu{
+    max-height: 400px;
+}
+
+.userMenu{
+    background: #E9F8F9;
+    padding: 20px;
+    margin: 10px;
+}
+
+.menuElements{
+    background: #E9F8F9;
+    padding: 20px;
+    margin: 10px;
+}
+
+.userInfo{
+    display: flex;
+    align-items: center;
+}
+
+.userInfo p{
+    font-weight: 500;
+    color: black;
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+.userMenu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #383838;
+    margin: 15px 0 10px;
+}
+
+.subMeniuLink{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+    cursor: pointer;
+}
+
+.saveButton {
+	display: none;
+}
+
+.OptionalLogout{
+	display: flex;
+}
+
+.ProfileOptional{
+	display: none;
+	align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+    cursor: pointer;
+}
+
+.ProfileOptional span{
+    font-size: 15px;
+    transition: transform 0.5s;
+}
+
+.ProfileOptional p{
+    width: 100%;
+    color: rgb(54, 54, 54);
+    margin: 0 20px;
+}
+
+.ProfileOptional:hover span{
+    transform: translate(5px);
+}
+
+.ProfileOptional:hover p{
+    font-weight: 600;
+}
+
+.subMeniuLink p{
+    width: 100%;
+    color: rgb(54, 54, 54);
+    margin: 0 20px;
+}
+
+.subMeniuLink span{
+    font-size: 15px;
+    transition: transform 0.5s;
+}
+
+.subMeniuLink:hover span{
+    transform: translate(5px);
+}
+
+.subMeniuLink:hover p{
+    font-weight: 600;
+}
+
+.findNowMenu{
+	width: 100%;
+	height: 300px;
+	background: #C0EEF2;
+	padding: 75px 10%;
+	display: flex;
+    padding-left: 25%;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+
+.titleText h3{
+	color: #181823;
+	font-size: 50px;
+    display: block;
+    margin-left: 15px;
+}
+
+.titleText h2{
+	color: #537FE7;
+	font-size: 50px;
+	text-align: center;
+	display: block;
+    font-style: italic;
+	text-shadow: 1px;
+}
+
+.titleText{
+    display: flex;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+.textUnderTitle{
+    width: 700px;
+}
+
+.textUnderTitle h3{
+    margin-left: 150px;
+    color: #181823cb;
+    font-size: 25px;
+}
+
+.findNowMenu button{
+	background-color: #181823;
+    border: none;
+    color: #E9F8F9;
+    white-space: nowrap;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+@media (max-width: 1000px){
+	.findNowMenu {
+		padding-left: 5%;
+	}
+	
+	.findNowMenu button{
+		fint-size: 20px;
+	}
+	
+	.findNowMenu h2,
+	.findNowMenu h3 {
+		font-size: 30px;
+	}
+}
+
+@media (min-width: 1000px) and (max-width: 1250px ){
+	
+	.findNowMenu {
+		padding-left: 5%;
+	}
+	
+	.findNowMenu button{
+		font-size: 20px;
+	} 
+	
+	.findNowMenu h2{
+		font-size: 40px;
+	}
+	
+}
+
+.findNowMenu button:hover{
+	background-color: #e7537f;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #E9F8F9;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+	z-index: 50;
+  }
+
+  .seasonNav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 300px;
+    background-color: #E9F8F9;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+	  z-index: 50;
+  }
+
+  .catNav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 300px;
+    background-color: #E9F8F9;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+	  z-index: 50;
+  }
+
+
+.buttonss{
+    display: flex;
+    margin-right: 5px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    transition: 0.3s;
+    align-items: center;
+    margin: 12px 0;
+}
+
+.buttonss p{
+    width: 100%;
+    color: rgb(54, 54, 54);
+    margin: 0 20px;
+}
+
+.buttonss:hover p{
+    font-weight: 600;
+}
+
+.buttonss span{
+    margin-left: 30px;
+    transition: transform 0.5s;
+}
+
+.buttonss:hover span{
+    transform: translate(5px);
+}
+
+.butonX:hover a{
+    color:rgb(0, 0, 0);
+}
+  
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    text-decoration: none;
+    color: #818181;
+    font-size: 36px;
+    transition: 0.3s;
+    margin-right: 3px;
+    margin-top: 10px;
+}
+
+.loginPopup {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 40%;
+    z-index: 3;
+  }
+  
+.registerPopup {
+	display: none;
+    position: fixed;
+    top: 10%;
+    left: 40%;
+    z-index: 3;
+}  
+
+.RegisterText h1 {
+	margin-left: 5%;
+}
+  
+  .loginPopup h2 {
+	display: grid;
+	font-size: 15px;
+  }  
+  
+  .loginPopup .register-button {
+    display: grid;
+    vertical-align: middle;
+	border: none;
+	background-color: #E9F8F9;
+	color: #537FE7;
+	padding: 0px;
+  }
+  
+  .loginContainer {
+    max-width: 300px;
+    padding: 10px;
+    background-color: #E9F8F9;
+    border-radius: 12px;
+    box-shadow: 5px 5px 10px grey;
+  }
+  
+  .loginContainer input[type=text], .loginContainer input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0 30px 0;
+    border: none;
+    background: #ffffff;
+    border-radius: 12px;
+  }
+
+  .loginContainer h1{
+    margin-bottom: 20px;
+    margin-left: 30%;
+  }
+  
+  .loginContainer input[type=text]:focus, .loginContainer input[type=password]:focus {
+    outline: none;
+  }
+  
+
+  .loginContainer .btn {
+    background-color: #537FE7;
+    color: #181823;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+  }
+  
+  .loginContainer .btn:hover{
+	  background-color: #C0EEF2;
+  }
+  
+  .loginContainer .cancel {
+    background-color: #e7537f;
+  }
+
+  .recomandedMenu .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 15px;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  .recomandedMenu h2 {
+    font-size: 32px;
+    margin-bottom: 1em;
+  }
+  
+  .recomandedMenu .cards-wrapper {
+    display: flex;
+    overflow-x: hidden;
+    margin-bottom: 20px;
+    width: 100%;
+    position: relative;
+  }
+  
+  .recomandedMenu .cards {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    scroll-snap-align: start;
+    transition: transform 0.2s;
+    padding-bottom: 10px;
+    margin-left: -20px;
+  }
+
+  
+  .recomandedMenu .card {
+    width: 257px;
+    height: 284px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+    overflow: hidden;
+  }
+
+  .recomandedMenu .discount {
+    text-decoration: line-through;
+    color: black;
+  }
+
+  .recomandedMenu .discount-price{
+    color: red;
+  }
+  
+  .recomandedMenu .card-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 204px;
+    overflow: hidden;
+  }
+  
+  .recomandedMenu .card-image {
+    max-width: 255px;
+    height: 204px;
+    object-fit: contain;
+  }
+  
+  .recomandedMenu .card-content {
+    padding: 20px;
+  }
+  
+  .recomandedMenu .card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .recomandedMenu .card-description {
+    margin-bottom: 10px;
+  }
+  
+  .recomandedMenu .card-link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--black);
+  }  
+  
+  .recomandedMenu .card-link:hover {
+    background: var(--darkorange);
+  }
+  
+  .recomandedMenu .card-like-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .recomandedMenu .card-like-button svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .recomandedMenu .card-like-button:hover svg {
+    stroke: #ff3b3f;
+    transform: scale(1.1);
+  }
+  
+  .recomandedMenu .card-like-button.is-liked svg {
+    stroke: #ff3b3f;
+    fill: #ff3b3f;
+  }
+  
+  .recomandedMenu .items{
+    overflow: hidden;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    transform: scale(0.98);
+    will-change: transform;
+    position: relative;
+  }
+  
+  .recomandedMenu .items.active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+    transform: scale(1);
+  }
+
+  .QuestionsFormular{
+	position: relative;
+    top: 0%;
+    max-height: 50000px;
+	max-width: 5000px;
+	align-items: center;
+	text-align: center;
+	width: 100%;
+    overflow: hidden;
+	display: block;
+	font-family: cursive;
+}
+
+.scroll-formular{
+	position: relative;
+	display: none;
+	background: #C0EEF2;
+	margin: 10% auto;
+	margin-top: -275px;
+	border: solid;
+    z-index: 10;
+	border-radius: 50px;
+	padding: 50px;
+	width: 100%;
+	text-align: center;
+	align-items: center;
+}
+
+.Adminwindow {
+	width: 100%;
+	height: 60%;
+	display: none;
+	position: fixed;
+	background-color: #ffffff;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0.9;
+	border: none;
+    z-index: 51;
+	border-radius: 50px;
+	padding: 50px;
+	transition: width 1s, height 1s, margin-top 1s;
+	border-style: ridge;
+}
+
+.ScrollableAdmin{
+	display: flex;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+#ScrapperLinkField{
+	width: 200%;
+}
+
+.Adminwindow .exitButton {
+	height: 50px;
+	border: none;
+	margin-right: 75px;
+	margin-left: -25px;
+	background: #ffffff;
+	border-radius: 50%;
+}
+
+.Adminwindow .ScrapperButton{
+	margin-top: 100px;
+	width: auto;
+}
+
+.Adminwindow .newEntryButton{
+	width: auto;
+}
+
+#ButtonSubmitNew{
+	display: none;
+}
+
+.AdminOptions {
+	opacity: 1;
+	display: grid;
+	height: 100%;
+	width: 100%;
+}
+
+.AdminOptions button {
+	height: 50px;
+	border-radius: 20%;
+	width: auto;
+	background: #C0EEF2;
+}
+
+.AdminOptions input[type="text"]{
+	border-style: solid;
+	background-color: #C0EEF2;
+	border-radius: 15px;
+	font-family: cursive;
+	padding: 5px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-left: 5px;
+	width: 90%;
+	font-family: "Arial", sans-serif;
+}
+
+.AdminOptions input[type="number"]{
+	border-style: solid;
+	background-color: #C0EEF2;
+	border-radius: 15px;
+	font-family: cursive;
+	padding: 5px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-left: 5px;
+	width: 90%;
+	font-family: "Arial", sans-serif;
+}
+
+.AdminOptions input[type="radio"]{
+	border-style: solid;
+	background-color: #C0EEF2;
+	border-radius: 15px;
+	font-family: cursive;
+	padding: 5px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-left: 5px;
+	width: 90%;
+	font-family: "Arial", sans-serif;
+}
+
+
+#SeasonSelection {
+	margin-left: 65px;
+	border-radius: 15px;
+}
+
+#StyleSelection{
+	margin-left: 65px;
+	border-radius: 15px;
+}
+
+#ShoeSizeId{
+	width: 200%;
+	display: none;
+}
+
+.RadioButtons {
+	width: 50%;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+#ColorRadio{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.RadioButtons label{
+	margin-left: 65px;
+}
+
+.ShoeFields {
+	display: none;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.ShoeFields input {
+	width: 150%;
+}
+
+.AdminOptions button:hover {
+	background-color: #e7537f;
+	cursor: pointer;
+}
+
+
+.scroll-editor {
+	width: 50%;
+	position: fixed;
+	display: none;
+	left: 50%;
+	background-color: #ffffff;
+	opacity: 0.9;
+	margin: 10% auto;
+	top: 25%;
+	transform: translate(-50%, -50%);
+	border: none;
+    z-index: 51;
+	border-radius: 50px;
+	padding: 50px;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+}
+
+.EditingMenu {
+	position: relative;
+    top: 0%;
+    max-height: 50000px;
+	align-items: center;
+	text-align: center;
+    overflow: hidden;
+	display: grid;
+	font-family: cursive;
+	justify-content: center;
+	font-size: 30px;
+	padding-bottom: 50px;
+	z-index: 51;
+}
+
+#saveButton {
+	position: fixed;
+	top: 90%;
+	font-size: 20px;
+	width: 150px;
+	border: solid;
+}
+
+#emailChange,
+#firstChange,
+#lastChange,
+#passwordChange,
+#pictureChange {
+	font-family: "Arial", sans-serif;
+}
+
+.scroll-editor button{
+	position: fixed;
+	top: 5%;
+	right: 20%;
+	cursor: grab;
+	margin-left: 750px;
+	background: #ffffff;
+	font-size: 25px;
+	border-style: none;
+	border-radius: 500px;
+	z-index: 52;
+}
+
+.scroll-editor button:hover{
+	background: #e7537f;
+}
+
+.EditingMenu input[type="text"]{
+	border-style: solid;
+	background-color: #C0EEF2;
+	border-radius: 15px;
+	font-family: cursive;
+}
+
+
+.exitButton{
+	background: #C0EEF2;
+	border-style: inset;
+	cursor: grab;
+	top: 0%;
+}
+
+.exitButton:hover {
+	background: #e7537f;
+}
+
+.ImageExit{
+	width: auto;
+	height: 30px;
+}
+
+.scroll-div{
+	width: 100%;
+	background: #C0EEF2;
+	height: 650px;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+.QuestionsFormular button{
+	cursor: grab;
+	top: 50%;
+	background: #537FE7;
+	font-size: 50px;
+	margin-top: 50px;
+	border-style: none;
+	border-radius: 1px;
+}
+
+.QuestionsFormular button:hover{
+	background: #e7537f;
+}
+
+.QuestionsFormular input[type="radio"]{
+	height: 25px;
+	width: 25px;
+}
+
+.QuestionsFormular input[type="number"]{
+	height: 40px;
+	width: 50px;
+}
+
+.questions-form{
+	text-align: center;
+	margin-left: 125px;
+}
+
+.sharethis-inline-share-buttons{
+	position: relative;
+	z-index:0;
+}
+
+.likedListWrap{
+    position: absolute;
+	display: grid;
+    top: 100%;
+    right: 12.5%;
+    width: 400px;
+    max-height: 300px;
+	height: 0px;
+    overflow: hidden;
+    overflow-y: scroll;
+    transition: height 0.5s;
+	z-index: 999;
+	background-color: #E9F8F9;
+  }
+  
+
+.likedListWrap.open-liked-list{
+    height: 300px;
+  }
+  
+  .likedList{
+	 display: flex;
+	background-color: #E9F8F9;
+    padding: 20px 20px 10px 20px;
+    margin-left: 10px;
+	height: 100%;
+  }
+
+  .likedListLink {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  
+.likedList img{
+	height: 90px;
+	width: 90px;
+	margin-right: 25px;
+	margin-top: 7px;
+}
+
+.likedList p {
+	font-size: 20px;
+	margin-left: 15px;
+}
+
+.likedList:hover {
+  cursor: pointer;
+}
+
+.likedList p#productName {
+  /* Existing styles */
+}
+
+.likedList:hover p#productName {
+  text-decoration: underline;
+}
+
+.card-text{
+	line-height: 1.2;
+}
+
+.card:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.titleForgotPassword h2{
+	text-align: center;
+	display: block;
+  text-shadow: 1px;
+}

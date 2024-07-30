@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+		<script type="text/javascript"
+		src="https://platform-api.sharethis.com/js/sharethis.js#property=649476bd7674a900126114fc&product=inline-share-buttons&source=platform"
+		async="async"></script>
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<style>
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 10px;
+
+                margin-top: 40px;
+                margin-left: 8%;
+                margin-right: auto;
+            }
+            .grid-item {
+              padding: 30px;
+              font-size: 20px;
+              text-align: center;
+            }
+
+            .card {
+                width: 250px;
+                height: 300px;
+            }
+
+            .textCautare {
+                padding: 10px;
+
+                margin-top: 2%;
+                margin-left: 5%;
+            }
+
+            img.card-img-top.card-image {
+                max-height: 200px;
+                width: auto;
+            }
+            </style>
+    </head>
+    <body onload="checkURL()">
+        <div class="pageContainer">
+            <div class="menuContainer">
+                <nav class="menuBar">
+                    <div class="menu">
+                        <img src="images/menu.png" class="pic" onclick="openNav()">
+                    </div>
+                    <div class="icon">
+                            <img src="images/logo.png" class="logo-pic" onclick="goBackToOriginalPage()">
+                    </div>
+                    <div class="searchBar">
+                        <form class="searchForm" action="search.html" onsubmit="modifySearchUrl(event)">
+                            <input type="text" placeholder="Search" name="search">
+                            <div class="searchBarButton">
+                                <button type="submit" class="submitButton">
+                                    <img src="images/search.png" class="search-pic">
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="liked">
+                        <img src="images/heart.png" class="pic" onClick="toggleLikedList()">
+                    </div>
+                    <div class="profile" id="profileImage">
+                        <img src="images/user.png" class="user_pic" id="profilePicture" onclick="toggleMenu()">
+                    </div>
+
+                    <div class="userMenuWrap" id="subMenu">
+                        <div class="userMenu">
+                            <div class="userInfo" id="userInfoPicture">
+                                <img src="images/user.png" class="userMenu-pic" id="userMenuInfoPicture" >
+                                <p id="UserName">User</p>
+                            </div>
+                            <hr>
+							
+							<div class="ProfileOptional" id="OptionalAdmin" onClick="OpenAdminMenu()">
+                                <img src="images/admin.png" class="pic">
+                                <p>Admin Menu</p>
+                                <span>></span>
+							</div>
+							
+							<div class="ProfileOptional" id="OptionalEditProfile" onClick="openEditor()">
+                                <img src="images/edit.png" class="pic">
+                                <p>Edit Profile</p>
+                                <span>></span>
+							</div>
+
+
+                            <a class="subMeniuLink" id="LoginButton" onclick="openForm()">
+                                <img src="images/enter.png" class="pic">
+                                <p>Login</p>
+                                <span>></span>
+                            </a>
+							
+							
+							
+							<div class="ProfileOptional" id="OptionalLogout" onClick="disconnect()">
+                                <img src="images/exitAccount.png" class="pic">
+                                <p>Logout</p>
+                                <span>></span>
+							</div>
+
+                        </div>
+                    </div>
+					
+					<div class="likedListWrap" id="likedListMenu">
+						
+					</div>
+
+                    <div class="sidenav" id="mySidenav">
+                        <div class="butonX">
+                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times;</a>
+                        </div>
+
+                        <div class="menuElements">
+                            <a onclick="goToProduct('gendre=female')" class="buttonss">
+                                <p>Women</p>
+                                <span>></span>
+                            </a>
+                            <hr>
+                            <a onclick="goToProduct('gendre=male')" class="buttonss">
+                                <p>Men</p>
+                                <span>></span>
+                            </a>
+                            <hr>
+                            <a onclick="openSeasonNav()" class="buttonss">
+                                <p>Season</p>
+                                <span>></span>
+                            </a>
+                            <hr>
+                            <a onclick="openCatNav()" class="buttonss">
+                                <p>Categories</p>
+                                <span>></span>
+                            </a>
+                            <hr>
+
+                        </div>
+                    </div>
+
+					<div class="seasonNav" id="mySeasonNav">
+						<a onclick="goToProduct('season=primavara')" class="buttonss">
+							<p>Spring</p>
+							<span>></span>
+						</a>
+						<hr>
+						<a onclick="goToProduct('season=vara')" class="buttonss">
+							<p>Summer</p>
+							<span>></span>
+						</a>
+						<hr>
+						<a onclick="goToProduct('season=toamna')" class="buttonss">
+							<p>Fall</p>
+							<span>></span>
+						</a>
+						<hr>
+						<a onclick="goToProduct('season=iarna')" class="buttonss">
+							<p>Winter</p>
+							<span>></span>
+						</a>
+						<hr>
+					</div>
+
+					<div class="catNav" id="myCatNav">
+						<a onclick="goToProduct('category=casual')" class="buttonss">
+							<p>Casual</p>
+							<span>></span>
+						</a>
+						<hr>
+						<a onclick="goToProduct('category=office')" class="buttonss">
+							<p>Office</p>
+							<span>></span>
+						</a>
+						<hr>
+						<a onclick="goToProduct('category=elegant')" class="buttonss">
+							<p>Elegant</p>
+							<span>></span>
+						</a>
+						<hr>
+						<a onclick="goToProduct('category=sport')" class="buttonss">
+							<p>Sport</p>
+							<span>></span>
+						</a>
+						<hr>
+					</div>
+                </nav>
+
+                <div class="loginPopup" id="myForm">
+                    <form class="loginContainer">
+                    <h1>Login</h1>
+                
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email">
+                
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw">
+                
+					<button type="button" class="register-button" onClick="OpenForgotPasswordPopup()">Forgot password?</button>
+                    <button type="button" class="btn" onClick="checkLogin()">Login</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+					
+					<h2>Don't have an account?</h2> <button type="button" class="register-button" onClick="OpenRegisterPopup()">Create one now!</button>
+                    </form>
+                </div>
+				
+				<div class="registerPopup" id="myRegisterForm">
+					<form class="loginContainer">
+					<div class="RegisterText">
+						<h1>Register</h1>
+					</div>
+						
+						<label for="Mail"><b>Email</b></label>
+						<input type="text" placeholder="Enter Email" name="Mail">
+						
+						<label for="FirstName"><b>First Name</b></label>
+						<input type="text" placeholder="Enter First Name" name="FirstName">
+						
+						<label for="LastName"><b>Last Name</b></label>
+						<input type="text" placeholder="Enter Last Name" name="LastName">
+						
+						<label for="Password"><b>Password</b></label>
+						<input type="password" placeholder="Enter Password" name="Password">
+						
+						<button type="button" class="btn" onClick="registerUser()">Register</button>
+						<button type="button" class="btn cancel" onclick="CloseRegisterPopup()">Close</button>
+					</form>
+				</div>
+				
+				<div class="registerPopup" id="forgotPasswordForm">
+					<form class="loginContainer">
+					<div class="titleForgotPassword">
+						<h2>Forgot Password</h2>
+					</div>
+						
+						<label for="ForgotMail"><b>Email</b></label>
+						<input type="text" placeholder="Enter Email" name="ForgotMail">
+						
+						<button type="button" class="btn" onClick="resetPassword()">Send mail</button>
+						<button type="button" class="btn cancel" onclick="CloseForgotPasswordPopup()">Close</button>
+					</form>
+				</div>
+            </div>
+
+            <div class="findNowMenu" id="FindNowSection">
+                <div class="findButtton" id="start-questions" onclick="startQuestions()">
+                    <a href="#"></a>
+                        <button type="button" onclick="">Find now!</button>
+                    </a>
+                </div>
+                <div class="allText">
+                    <div class="titleText">
+                        <h2>PERFECT FIT</h2>
+                        <h3>FINDER</h3>
+                    </div>
+
+                    <div class="textUnderTitle">
+                        <h3>Answer some simple questions and let us find the right shoes for you.</h3>
+                    </div>
+                </div>    
+            </div>
+			
+			<div class="scroll-formular" id="formResults">
+				<div class="scroll-div" id="formResultsContainer">
+					<div class="grid-container">
+
+					</div>
+				</div>
+
+				<button type="exitFormular" class="exitButton" onclick="closeFormResults()"> <img src ="images/exit.png" class="ImageExit" alt="buttonpng" bordero="0" /> </button>
+			</div>
+
+            <div class="scroll-formular" id="PopUpFormular">
+                <div class="scroll-div" id="ScrollImplementation">
+                    <div class="QuestionsFormular" id="SubForm">
+                                    <form id="questions-form">
+                                    <h2 style="font-family: verdana;font-size: 45px">What are you looking for today?</h2>
+                                    <label><input type="radio" name="q1" value="a">male</label><br>
+                                    <label><input type="radio" name="q1" value="b">female</label><br>
+                    
+                                    <h2 style="font-family: verdana;font-size: 45px">What are you using your shoes for MOSTLY?</h2>
+                                    <label><input type="radio" name="q2" value="a">Running</label><br>
+                                    <label><input type="radio" name="q2" value="b">Walking</label><br>
+                                    <label><input type="radio" name="q2" value="c">Trail</label><br>
+                                    <label><input type="radio" name="q2" value="d">Cross Training</label><br>
+                    
+                                    <h2 style="font-family: verdana;font-size: 45px">What is your weekly mileage?</h2>
+                                    <label><input type="radio" name="q3" value="a">16 kilometers</label><br>
+                                    <label><input type="radio" name="q3" value="b">16-32 kilometers</label><br>
+                                    <label><input type="radio" name="q3" value="c">32-48 kilometers</label><br>
+                                    <label><input type="radio" name="q3" value="d">48+ kilometers</label><br>
+                    
+                                    <h2 style="font-family: verdana;font-size: 45px">What are your running goals?</h2>
+                                    <label><input type="radio" name="q4" value="a">Stay active & healthy</label><br>
+                                    <label><input type="radio" name="q4" value="b">Half Marathon</label><br>
+                                    <label><input type="radio" name="q4" value="c">Marathon</label><br>
+                                    <label><input type="radio" name="q4" value="d">Ultra Marathon</label><br>
+                                    <label><input type="radio" name="q4" value="e">Obstacle Course Races</label><br>
+                    
+                                    <h2 style="font-family: verdana;font-size: 45px">Pick your arch shape:</h2>
+                                    <img src="images/ListOfShapes.png" alt="Question 1 image"><br>
+                                    <label><input type="radio" name="q5" value="a">High</label><br>
+                                    <label><input type="radio" name="q5" value="b">Medium</label><br>
+                                    <label><input type="radio" name="q5" value="c">Low</label><br>
+                    
+                                    <h2 style="font-family: verdana;font-size: 45px">How much support do you need?</h2>
+                                    <img src="images/SupportNeeded.png" alt="Question 2 image"><br>
+                                    <label><input type="radio" name="q6" value="a">Legs Angle Out</label><br>
+                                    <label><input type="radio" name="q6" value="b">Legs Straight</label><br>
+                                    <label><input type="radio" name="q6" value="c">Legs Angle In</label><br>
+                
+                                    <h2 style="font-family: verdana;font-size: 45px">Any nagging aches or pains?</h2>
+                                    <label><input type="radio" name="q7" value="a">Back</label><br>
+                                    <label><input type="radio" name="q7" value="b">Hips</label><br>
+                                    <label><input type="radio" name="q7" value="c">Hamstring</label><br>
+                                    <label><input type="radio" name="q7" value="d">Chafing</label><br>
+                                    <label><input type="radio" name="q7" value="e">Bands</label><br>
+                                    <label><input type="radio" name="q7" value="f">Knees</label><br>
+                                    <label><input type="radio" name="q7" value="g">Calves</label><br>
+                                    <label><input type="radio" name="q7" value="h">Shins</label><br>
+                                    <label><input type="radio" name="q7" value="i">Achilles/Ankles</label><br>
+                                    <label><input type="radio" name="q7" value="j">Heels/Planter Fascia</label><br>
+                                    <label><input type="radio" name="q7" value="k">Feet</label><br>
+                                    <label><input type="radio" name="q7" value="l">Blisters/Calluses</label><br>
+                                    <label><input type="radio" name="q7" value="m">None</label><br>
+                
+                                    <h2 style="font-family: verdana;font-size: 45px">How much cushion do you want?</h2>
+                                    <label><input type="radio" name="q8" value="a">The Most</label><br>
+                                    <label><input type="radio" name="q8" value="b">Mid Level</label><br>
+                                    <label><input type="radio" name="q8" value="c">Low & Fast</label><br>
+                
+                                    <h2 style="font-family: verdana;font-size: 45px">What shoe size do you normally wear?</h2>
+                                    <label for="q10"> <input type="number" name="q10" id="q10" min="32" max="50" step="0.5" value="40">	 </label><br>
+                    
+                                    <button type="submit" onClick="startFormResults()">Submit Answers</button>
+                                    </form>
+    
+                    </div>	
+                </div>
+				
+					<button type="exitFormular" class="exitButton" onclick="closeFormular()"> <img src ="images/exit.png" class="ImageExit" alt="buttonpng" bordero="0" /> </button>
+                
+            </div>
+
+            <div class="recomandedMenu">
+                <div class="container-fluid">
+                    <h2 class="mt-5">Recommended for summer</h2>
+                    <div class="items scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
+                    </div>
+                    
+                    <h2 class="mt-5">Recommended for faculty</h2>
+                    <div class="items scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <h2 class="mt-5">Trending</h2>
+                    <div class="items scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
+                    </div>
+                </div>
+            </div>
+			
+			
+			<div class="scroll-editor" id="PopUpEditor">
+				<button type="exitFormular" class="exitButton" onclick="closeEditor()"> <img src ="images/exit.png" class="ImageExit" alt="buttonpng" bordero="0" /> </button>
+				
+					
+					<div class="EditingMenu" id="SubEditorMenu">
+						
+						<label for="emailChange"><b>Email:</b></label>
+						<input type="text" id="emailChange" class="edit-text"  placeholder="Enter Email" />
+                
+						<label for="firstChange"><b>First Name:</b></label>
+						<input type="text" id="firstChange" class="edit-text"  placeholder="First Name" />
+						
+						<label for="lastChange"><b>Last Name:</b></label>
+						<input type="text" id="lastChange" class="edit-text"  placeholder="Last Name" />
+						
+						<label for="passwordChange"><b>Password:</b></label>
+						<input type="text" id="passwordChange" class="edit-text" placeholder="Password" />
+						
+						<label for="pictureChange"><b>Profile Picture Link:</b></label>
+						<input type="text" id="pictureChange" class="edit-text"  placeholder="Profile Picture" />
+						
+						<button id="saveButton" onclick="updateUserProfile()">Save Changes</button>
+						
+					</div>
+			</div>
+			
+			<div class="Adminwindow" id="PopUpAdminWindow">
+				<div>
+				<button type="exitAdmin" class="exitButton" onclick="closeAdminWindow()"> <img src ="images/exit.png" class="ImageExit" alt="buttonpng" /> </button>
+				</div>
+				
+			<div class="ScrollableAdmin" id="IdScrollableAdmin">	
+
+				<div class="AdminOptions" id="AdminOptionsMenu">
+					
+					<div>
+					<button type="button" class="newEntryButton" id="ButtonAddShoe"onclick="addNewShoe()">Add Shoe</button>
+					
+					<button type="button" class="newEntryButton" id="ButtonSubmitNew"onclick="SubmitNewShoe()">Submit Entry</button>
+					</div>
+					
+					<div class="ShoeFields" id="ShoeDataFields">
+						<input type="text" placeholder="Name">
+						<input type="text" placeholder="Link">
+						<input type="number" step="0.01" placeholder="Price">
+						<input type="text" placeholder="Photo link">
+						
+						<div class="Selections" id="SeasonSelection">
+							<select id="Season" name="Season">
+								<option value="" selected disabled>Season</option>
+								<option value="Vara"> Summer</option>
+								<option value="Toamna"> Autumn</option>
+								<option value="Iarna"> Winter</option>
+								<option value="Primavara"> Spring</option>
+								<option value="Tot anul"> Entire year</option>
+							</select>
+						</div>
+						
+						<div class="Selections" id="StyleSelection">
+							<select id="Style" name="Style">
+								<option value="" selected disabled>Style</option>
+								<option value="Casual"> Casual</option>
+								<option value="Formal"> Formal</option>
+								<option value="Office"> Office</option>
+								<option value="Sport"> Sport</option>
+							</select>
+						</div>
+						
+						<div class="RadioButtons" id="GenderRadio">
+							<label>
+								<input type="radio" name="gender" value="male"> Male
+							 </label>
+							 <label>
+								<input type="radio" name="gender" value="female"> Female
+							 </label>
+						</div>
+						
+						<div class="RadioButtons" id="ColorRadio">
+							<label>
+								<input type="radio" name="color" value="Rosu"> Red
+							 </label>
+							 <label>
+								<input type="radio" name="color" value="Galben"> Yellow
+							 </label>
+							 <label>
+								<input type="radio" name="color" value="Albastru"> Blue
+							 </label>
+							 <label>
+								<input type="radio" name="color" value="Negru"> Black
+							 </label>
+							 <label>
+								<input type="radio" name="color" value="Gri"> Grey
+							 </label>
+							 <label>
+								<input type="radio" name="color" value="Alb"> White
+							 </label>
+							 <label>
+								<input type="radio" name="color" value="Verde"> Green
+							 </label>
+							 <label>
+								<input type="radio" name="color" value="Portocaliu"> Orange
+							 </label>
+							 <label>
+								<input type="radio" name="color" value="Maro"> Brown
+							 </label>
+						</div>
+						
+					</div>	
+					
+					<div class="ShoeSizeField" id="ShoeSizeId">
+						<input type="text" placeholder="Insert shoe sizes separated by ',' ex: 43,44">
+					</div>
+					
+					<div>
+					<button type="button" class="ScrapperButton" id="ButtonScrapper" onclick="startScrapper()">Start Scrapper</button>
+					</div>
+					<div class="ScrapperField" id="ScrapperLinkField">
+						<input type="text" placeholder="Link for website to be scanned">
+					</div>
+				</div>
+			</div>	
+			</div>
+		</div>
+        <script>
+			let isAdmin = false;
+			let isLoggedIn = false;
+			let userName = 'none';
+			let userId = -1;
+            let subMenu = document.getElementById("subMenu");
+			
+			
+			const divElement = document.querySelectorAll('div.items.scrolling-wrapper.row.flex-row.flex-nowrap.mt-4.pb-4.pt-2');
+
+            divElement.forEach(async (divElement) => {
+				try {
+					const response = await fetch('http://localhost:8081/shoes');
+					const data = await response.json();
+
+					data.forEach(shoe => {
+					const markup = `<div class="item col-sm-5 col-md-4 col-large-3">
+										<div class="card card-block card-1">
+											<div class="card" onClick="GoToProductPage(${shoe.id})">
+													<img class="card-img-top card-image"
+														src="${shoe.photo}"
+														alt="Card image">
+													
+													<p class="card-text">${shoe.name}</p>
+													<p class="card-text">${shoe.price} lei</p>
+											</div>
+										</div>
+									</div>`;
+					divElement.innerHTML += markup;
+					});
+				} catch (error) {
+					console.log(error);
+				}
+				});
+				
+				const myForm = document.getElementById("questions-form");
+				myForm.addEventListener("submit", (e) => {
+					e.preventDefault();
+
+					const request = new XMLHttpRequest();
+					
+					
+					request.open("post", "http://localhost:8081/testForm");
+
+					request.onload = function() {
+						console.log("a mers!!");
+						var response = request.responseText;
+						var jsonData = JSON.parse(response);
+
+						console.log(jsonData);
+
+						const divElement = document.querySelector('div.grid-container');
+
+						jsonData.forEach(shoe => {
+
+                            const markup = `<div class="grid-item">
+                                                <div class="item col-sm-5 col-md-4 col-large-3">
+                                                    <div class="card card-block card-1">
+                                                        <div class="card">
+                                                            <a href="https://www.aboutyou.ro/p/skechers/teni-i-summits-4026129"
+                                                                class="card-link">
+                                
+                                                                <img class="card-img-top card-image"
+                                                                    src="${shoe.photo}"
+                                                                    alt="Card image">
+                                                                <p class="card-text">${shoe.name}</p>
+                                                                <p class="card-text">${shoe.price} lei</p>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>`;
+											
+                            divElement.innerHTML += markup;
+                        });
+					}
+
+					request.send(new FormData(myForm));
+
+					console.log("apasat form");
+				})
+				
+				function modifySearchUrl(event){
+					event.preventDefault();
+					var currentURL= window.location.href;
+					var thisUserId;
+					
+					
+					var searchInput = document.querySelector('.searchForm input[name="search"]');
+					var searchValue = searchInput.value.trim();
+					if(searchValue===''){
+						return;
+					}
+					
+					var baseUrl = 'search.html';
+					var newUrl;
+					if(currentURL.includes('?id=')){
+						const segment=currentURL.split('=');
+						const thisID=segment[1].trim();
+						thisUserId=thisID;
+						newUrl = baseUrl+'?id='+thisUserId+'&search='+encodeURIComponent(searchValue);
+					} else {
+					 newUrl=baseUrl+'?search='+encodeURIComponent(searchValue);
+					}
+					window.location.href = newUrl;
+					
+				}
+				
+				
+
+				function goToProduct(url) {
+				
+				var currentURL= window.location.href;
+					var thisUserId="";
+					var goingURL = "";
+					if(currentURL.includes('id=')){
+						openNav();
+						const segment=currentURL.split('=');
+						const thisID=segment[1].trim();
+						thisUserId=thisID;
+						userId=thisID;
+						goingURL = "search.html?" + "id=" + thisID + "&" + url;;
+						window.location.href = goingURL;
+					} else {
+						goingURL = "search.html?" + url;
+						window.location.href = goingURL;
+					}
+
+					
+				}
+				
+				function createProductClickHandler(productId) {
+				  return function () {
+				  var currentURL = window.location.href;
+					if (currentURL.includes('id=')) {
+					  const segment = currentURL.split('=');
+					  const thisID = segment[1].trim();
+					  thisUserId = thisID;
+					  userId = thisID;
+					  goingURL = "product.html?id=" + thisID + "&shoeId=" + productId;
+					  window.location.href = goingURL;
+					} else {
+					  goingURL = "product.html?shoeId=" + productId;
+					  window.location.href = goingURL;
+					}
+				  }
+				}
+				
+				
+				function toggleLikedList(){
+				var likedListWrap = document.getElementById('likedListMenu');
+				var currentURL = window.location.href;
+					const segment=currentURL.split('=');
+					const thisID=segment[1].trim();
+					userId=thisID;
+					isLoggedIn=true;
+					const actualID = thisID;
+				
+				fetch('http://localhost:8081/getLiked', {
+					method: 'POST',
+					body: JSON.stringify({ actualID }),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+				  .then((response) => response.json())
+				  .then((data) => {
+					  if(data.hasOwnProperty('names') && data.hasOwnProperty('photos')){
+						const names = data.names;
+						const photos = data.photos;
+						const receivedId = data.ids;
+						
+						for(var i = 0; i < names.length; i++){
+							var productDiv = document.createElement('div');
+							productDiv.classList.add('likedList');
+							
+							var image=document.createElement('img');
+							image.classList.add('likedPhoto');
+							image.src=photos[i] || 'images/cart.png';
+							console.log(receivedId[0]);
+							
+							var name=document.createElement('p');
+							name.id='productName';
+							name.textContent=names[i];
+							
+							
+							productDiv.addEventListener('click', createProductClickHandler(receivedId[i]));
+							
+							productDiv.appendChild(image);
+							productDiv.appendChild(name);
+							
+							likedListWrap.appendChild(productDiv);
+						}
+					  
+						  if (subMenu.classList.contains("open-menu")) {
+								  subMenu.classList.remove("open-menu");
+								}
+								let likedList = document.getElementById("likedListMenu");
+								if(likedList.classList.contains("open-liked-list")){
+									likedListWrap.innerHTML = '';
+								}
+								likedList.classList.toggle("open-liked-list");
+					  
+					  } else {
+						displayPopup('There was an error, please try again later');
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+				  
+				  
+				  
+				}
+				
+			function startFormResults() {
+			closeEditor();
+			closeFormular();
+
+			document.getElementById("formResults").style.display="block";
+			}	
+				
+			function closeFormResults() {
+			closeEditor();
+
+			document.getElementById("formResults").style.display="none";
+			}	
+			
+			function addNewShoe(){
+				var textInput = document.getElementById("ShoeDataFields");
+				document.getElementById('ButtonScrapper').style.marginTop = '35px';
+				document.getElementById('ShoeDataFields').style.display='grid';
+				document.getElementById('ButtonSubmitNew').style.display='flex';
+				document.getElementById('ButtonAddShoe').style.display='none';
+				document.getElementById('ShoeSizeId').style.display='flex';
+			}
+			
+			function getShoeSizes(){
+				var shoeSizeInput = document.querySelector('#ShoeSizeId input');
+				var shoeSizesString = shoeSizeInput.value;
+				var shoeSizesArray = shoeSizesString.split(',');
+				shoeSizesArray = shoeSizesArray.map(function(size) {return size.trim();});
+				return shoeSizesArray;
+			}
+			
+			function validateShoeInputs(shoeData){
+				for(const key in shoeData){
+					if (shoeData.hasOwnProperty(key) && !shoeData[key]) {
+					  return false;
+					}
+				}
+				return true;
+			}
+			
+			function GoToProductPage(valueId){
+				var currentURL= window.location.href;
+					var thisUserId="";
+					var goingURL = "";
+					if(currentURL.includes('id=')){
+						const segment=currentURL.split('=');
+						const thisID=segment[1].trim();
+						thisUserId=thisID;
+						userId=thisID;
+						goingURL = "product.html?id="+thisID+"&shoeId="+valueId;
+						window.location.href = goingURL;
+					} else {
+						goingURL = "product.html?shoeId="+valueId;
+						window.location.href = goingURL;
+					}
+			}
+			
+			function SubmitNewShoe(){
+				var shoeData = {
+					name: document.querySelector('#ShoeDataFields input[placeholder="Name"]').value,
+					link: document.querySelector('#ShoeDataFields input[placeholder="Link"]').value,
+					price: document.querySelector('#ShoeDataFields input[placeholder="Price"]').value,
+					photoLink: document.querySelector('#ShoeDataFields input[placeholder="Photo link"]').value,
+					season: document.getElementById("Season").value,
+					style: document.getElementById("Style").value,
+					gender: document.querySelector('input[name="gender"]:checked').value,
+					color: document.querySelector('input[name="color"]:checked').value,
+					sizes: getShoeSizes()
+				  };
+				  
+				  isValid = validateShoeInputs(shoeData);
+				  if(!isValid){
+					displayPopup("Please insert values in each field");
+					return;
+				  }
+				  
+				  fetch('http://localhost:8081/addShoe', {
+					method: 'POST',
+					body: JSON.stringify({ shoeData }),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+				  .then((response) => response.json())
+				  .then((data) => {
+					  if (data.message === 'Success') {
+						  displayPopup('Shoe added successfully');
+					  } else {
+						  displayPopup('One or more sizes are not valid');
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+			}
+			
+			function startScrapper(){
+				var scrapperInputField = document.getElementById('ScrapperLinkField').querySelector('input');
+				var linkValue = scrapperInputField.value;
+				
+				if(linkValue===''){
+					displayPopup('Please place a link').
+					return;
+				}
+				
+				fetch('http://localhost:8081/scrapper', {
+					method: 'POST',
+					body: JSON.stringify({ linkValue }),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+				  .then((response) => response.json())
+				  .then((data) => {
+					  if (data.message === 'Success') {
+						  closeAdminWindow();
+						  displayPopup('Scrapper executed successfully');
+					  } else {
+						  displayPopup('There was an error, try again.');
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+				
+			}
+			
+			function OpenAdminMenu(){
+				toggleMenu();
+				document.getElementById('PopUpAdminWindow').style.display = 'flex';
+				
+			}
+			
+			function closeAdminWindow(){
+				document.getElementById('PopUpAdminWindow').style.display = 'none';
+			}
+			
+			function openEditor(){
+				getUserData();
+				toggleMenu();
+				document.getElementById('PopUpEditor').style.display ="block";
+			}
+			
+			function closeLikedMenu(){
+					var likedListWrap = document.getElementById('likedListMenu');
+					let likedList = document.getElementById("likedListMenu");
+								if(likedList.classList.contains("open-liked-list")){
+									likedListWrap.innerHTML = '';
+									likedList.classList.toggle("open-liked-list");
+								}			
+			}
+			
+			function closeEditor(){
+				document.getElementById('PopUpEditor').style.display ="none";
+				document.getElementById('saveButton').style.display ="none";
+			}
+			
+			function changeUserName(value){
+				var messageElement=document.getElementById('UserName');
+				messageElement.textContent=value;
+			}
+			
+			function addAdminTag(){
+				var messageElement=document.getElementById('UserName');
+				var currentValue = messageElement.textContent;
+				var newValue = currentValue + '[A]';
+				messageElement.textContent = newValue;
+				document.getElementById('OptionalAdmin').style.display= "flex";
+			}
+
+            function toggleMenu(){
+                subMenu.classList.toggle("open-menu");
+				closeLikedMenu();
+            }
+
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "300px";
+            }
+
+			function openSeasonNav() {
+				closeCatNav();
+
+				setTimeout(function() {
+        			document.getElementById("mySeasonNav").style.width = "300px";
+    			}, 500);
+            }
+
+			function openCatNav() {
+				closeSeasonNav();
+				setTimeout(function() {
+        			document.getElementById("myCatNav").style.width = "300px";
+    			}, 500);
+            }
+
+            function closeNav() {
+				closeSeasonNav();
+				closeCatNav();
+
+				setTimeout(function() {
+					document.getElementById("mySidenav").style.width = "0";
+				}, 500);
+            }
+
+			function closeSeasonNav() {
+                document.getElementById("mySeasonNav").style.width = "0";
+            }
+
+			function closeCatNav() {
+                document.getElementById("myCatNav").style.width = "0";
+            }
+
+            function openForm() {
+				closeEditor();
+				toggleMenu();
+                document.getElementById("myForm").style.display = "block";
+            }
+
+            function closeForm() {
+                document.getElementById("myForm").style.display = "none";
+            }
+			
+			function OpenRegisterPopup(){
+				closeForm();
+				document.getElementById("myRegisterForm").style.display = "block";
+			}
+			
+			function CloseRegisterPopup(){
+				document.getElementById("myRegisterForm").style.display = "none";
+			}
+			
+			function getShoes(){
+                fetch('http://localhost:8081/shoes')
+                    .then(res => {
+                        return res.json();
+                    })
+                    .then(data => {
+                        console.forEach(shoe => {
+                            const markup = `<div class="item col-sm-5 col-md-4 col-large-3">
+                                                <div class="card card-block card-1">
+                                                    <div class="card">
+                                                        <a href="${shoe.link}"
+                                                            class="card-link">
+                            
+                                                            <img class="card-img-top card-image"
+                                                                src="${shoe.photos}"
+                                                                alt="Card image">
+                                                            <button class="card-like-button">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                                    fill="none" stroke="#8C8C8C" stroke-width="2" stroke-linecap="round"
+                                                                    stroke-linejoin="round" class="feather feather-heart">
+                                                                    <path
+                                                                        d="M20.84 4.08a5.5 5.5 0 0 0-7.78 0L12 5.17l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z">
+                                                                    </path>
+                                                                </svg>
+                                                            </button>
+                                                            <p class="card-text">${shoe.name}</p>
+                                                            <p class="card-text">${shoe.price} lei</p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>`;
+                            document.querySelector("#mamamia").insertAdjacentHtml('beforeend', markup);
+                        });
+                    })
+                    .catch(error => console.log(error));
+            }
+
+			function findShoes() {
+				const q1Input = document.querySelector('input[name="q1"]:checked');
+				const q2Input = document.querySelector('input[name="q2"]:checked');
+				const q3Input = document.querySelector('input[name="q3"]:checked');
+				const q4Input = document.querySelector('input[name="q4"]:checked');
+				const q5Input = document.querySelector('input[name="q5"]:checked');
+				const q6Input = document.querySelector('input[name="q6"]:checked');
+				const q7Input = document.querySelector('input[name="q7"]:checked');
+				const q8Input = document.querySelector('input[name="q8"]:checked');
+				const q10Input = document.querySelector('input[name="q10"]');
+
+				const gender = q1Input ? q1Input.parentNode.textContent.trim() : '';
+				const mainUse = q2Input ? q2Input.parentNode.textContent.trim() : '';
+				const mileage = q3Input ? q3Input.parentNode.textContent.trim() : '';
+				const goals = q4Input ? q4Input.parentNode.textContent.trim() : '';
+				const archShape = q5Input ? q5Input.parentNode.textContent.trim() : '';
+				const support = q6Input ? q6Input.parentNode.textContent.trim() : '';
+				const pain = q7Input ? q7Input.parentNode.textContent.trim() : '';
+				const cushion = q8Input ? q8Input.parentNode.textContent.trim() : '';
+				const size = q10Input ? parseFloat(q10Input.value) : 0;
+
+				const requestBody = {
+					gender,
+					mainUse,
+					mileage,
+					goals,
+					archShape,
+					support,
+					pain,
+					cushion,
+					size
+				};
+
+				const divElement = $('div.items.scrolling-wrapper.row.flex-row.flex-nowrap.mt-4.pb-4.pt-2');
+
+				divElement.each(async (index, element) => {
+					try {
+					const response = await $.ajax({
+						url: 'http://localhost:8081/searchShoes',
+						method: 'POST',
+						data: JSON.stringify(requestBody),
+						headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+						},
+						dataType: 'json',
+					});
+
+					const shoe = response;
+					const markup = `<div class="item col-sm-5 col-md-4 col-large-3">
+										<div class="card card-block card-1">
+										<div class="card">
+											<a href="https://ccc.eu/ro/barbati/pantofi" class="card-link">
+											<img class="card-img-top card-image" src="${shoe.photo}" alt="Card image">
+											<button class="card-like-button">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart">
+												<path d="M20.84 4.08a5.5 5.5 0 0 0-7.78 0L12 5.17l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"></path>
+												</svg>
+											</button>
+											<p class="card-text">${shoe.name}</p>
+											<p class="card-text">${shoe.price} lei</p>
+											</a>
+										</div>
+										</div>
+									</div>`;
+
+					$(element).append(markup);
+					} catch (error) {
+					console.log(error);
+					}
+				});
+			}
+			
+			function OpenForgotPasswordPopup(){
+				closeForm();
+				document.getElementById("forgotPasswordForm").style.display = "block";
+			}
+			
+			function CloseForgotPasswordPopup(){
+				document.getElementById("forgotPasswordForm").style.display = "none";
+			}
+			
+			
+			function registerUser(){
+				closeForm();
+				const emailInput = document.querySelector('input[name="Mail"]');
+				const firstNameInput = document.querySelector('input[name="FirstName"]');
+				const lastNameInput = document.querySelector('input[name="LastName"]');
+				const passwordInput = document.querySelector('input[name="Password"]');
+				const email = emailInput.value;
+				const firstName = firstNameInput.value;
+				const lastName = lastNameInput.value;
+				const password = passwordInput.value;
+				
+				if (email === '') {
+					displayPopup('Please enter an email');
+					return;
+				}
+				if (firstName === '') {
+					displayPopup('Please enter you first name');
+					return;
+				}
+				if (lastName === '') {
+					displayPopup('Please enter your last name');
+					return;
+				}
+				if (password === '') {
+					displayPopup('Please enter a password');
+					return;
+				}
+				
+				fetch('http://localhost:8081/register', {
+					method: 'POST',
+					body: JSON.stringify({ firstName, lastName, email, password }),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+				  .then((response) => response.json())
+				  .then((data) => {
+					  if (data.message === 'Successfully Registered') {
+						  CloseRegisterPopup();
+						  displayPopup('Successfully Registered');
+					  } else if (data.message === "Email already in use") {
+					 	  displayPopup("Email already in use");
+					  } else if (data.message === 'Incorrect password') {
+						  displayPopup('Password must have at least 6 characters');
+					  } else {
+						  displayPopup('There was an error, try again.');
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+				  
+				  emailInput.value = '';
+				  passwordInput.value = '';
+				  firstNameInput.value = '';
+				  lastNameInput.value = '';
+			}
+			
+			function parseName(value){
+				const message = value;
+				const parts = message.split('|')
+				const name = parts[1].trim();
+				userName = name;
+				if(message.includes('[A]')){
+					isAdmin = true;
+					const privilege = parts[2].trim();
+					const concatenated = name + privilege;
+					changeUserName(concatenated);
+				} else {
+					changeUserName(name);
+				}
+				
+			}
+			
+			function goBackToOriginalPage() {
+				var currentURL= window.location.href;
+				
+				var queryParam = window.location.search;
+				
+				var homeURL = window.location.origin + window.location.pathname + queryParam;
+				window.location.assign(homeURL);
+			}
+			
+			function checkURL(){
+				var currentURL = window.location.href;
+				if(currentURL.includes('id=')){
+					const segment=currentURL.split('=');
+					const thisID=segment[1].trim();
+					loginForId(thisID);
+				}
+				document.getElementById('saveButton').style.display = "none";
+			}
+			
+			function replaceSearch(value){
+				var baseUrl = window.location.href.split('?')[0];
+				var newURL = baseURL+'?id='+value;
+				document.querySelector('.searchForm').action = newURL;
+			}
+			
+			function checkAdminStatus(value){
+				fetch('http://localhost:8081/checkAdmin', {
+					method: 'POST',
+					body: JSON.stringify({ value }),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+					.then((response) => response.json())
+					.then((data) => {
+						const message = data.message;
+					  if (message === 'TRUE') {
+						  isAdmin=true;
+						  addAdminTag();
+					  } else {
+						isAdmin=false;
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+			}
+			
+			function loginForId(value){
+				fetch('http://localhost:8081/refresh', {
+					method: 'POST',
+					body: JSON.stringify({ value }),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+				  .then((response) => response.json())
+				  .then((data) => {
+						const message = data.message;
+					  if (message.includes('Successfully Logged')) {
+						  userId=value;
+						  loginScript(data.message);
+						  checkAdminStatus(value);
+						  isLoggedIn=true;
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+			}
+			
+			
+			
+			
+			function checkLogin() {
+				
+				const emailInput = document.querySelector('input[name="email"]');
+				const passwordInput = document.querySelector('input[name="psw"]');
+				const email = emailInput.value;
+				const password = passwordInput.value;
+				
+				if (email === '') {
+					displayPopup('Please enter an email');
+					return;
+				}
+				if (password === '') {
+					displayPopup('Please enter a password');
+					return;
+				}
+				
+				fetch('http://localhost:8081/login', {
+					method: 'POST',
+					body: JSON.stringify({ email, password }),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+				  .then((response) => response.json())
+				  .then((data) => {
+						const message = data.message;
+					  if (message.includes('Successfully Logged |')) {
+						  displayPopup('Successfully Logged');
+						  findId(data.message);
+					  } else if (data.message === "User doesn't exist") {
+					 	  displayPopup("User doesn't exist");
+					  } else if (data.message === 'Incorrect password') {
+						  displayPopup('Incorrect password');
+					  } else {
+						  displayPopup('There was an error, try again.');
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+				  
+				  emailInput.value = '';
+				  passwordInput.value = '';
+			}
+			
+			function disconnect(){
+				toggleMenu();
+				isLoggedIn = false;
+				changeUserName('User')
+				displayPopup('Successfully Logged out');
+				logoutScript();
+			}
+			
+			function findId(value){
+				const message = value;
+				const parts = message.split('|');
+				const id = parts[1].trim();
+				userId=id;
+				newLoggedPage(id);
+			}
+			
+			function newLoggedPage(value){
+				var currentURL= window.location.href;
+				var newURL = currentURL+'?id='+value;
+				
+				window.location.href = newURL;
+			}
+			
+			function parseProfilePicture(value){
+				var profileImage = document.querySelector('.profile .user_pic');
+				var menuImage = document.querySelector('.userInfo .userMenu-pic');
+				var parts=value.split('|--|--|--|');
+				if(parts.length > 1){
+					var imageURL = parts[1];
+					profileImage.src = imageURL;
+					menuImage.src = imageURL;
+					resizeProfilePicture();
+				} else {
+					profileImage.src = "images/user.png";
+					menuImage.src = "images/user.png";
+				}
+				
+			}
+			
+			function resizeProfilePicture(){
+				document.getElementById("profileImage").style.borderRadius = '20%';
+				document.getElementById("profileImage").style.overflow = 'hidden';
+				document.getElementById("userInfoPicture").style.borderRadius = '20%'
+				document.getElementById("userInfoPicture").style.overflow = 'hidden'
+				
+				
+				document.getElementById("profilePicture").style.objectFit = 'cover';
+				document.getElementById("userMenuInfoPicture").style.objectFit = 'cover';
+			}
+			
+			function loginScript(value){
+				closeForm();
+				isLoggedIn = true;
+				parseName(value);
+				parseProfilePicture(value);
+				document.getElementById("OptionalEditProfile").style.display = "flex";
+				document.getElementById("OptionalLogout").style.display = "flex";
+				document.getElementById("LoginButton").style.display = "none";
+			}
+			
+			function logoutScript(){
+				var currentURL = window.location.href;
+				var baseURL = currentURL.split('?')[0];
+				window.location.href = baseURL;
+				document.getElementById("OptionalEditProfile").style.display = "none";
+				document.getElementById("OptionalLogout").style.display = "none";
+				document.getElementById("LoginButton").style.display = "flex";
+			}
+			
+			function displayPopup(message) {
+			  const popup = document.createElement('div');
+			  popup.className = 'popup';
+			  popup.textContent = message;
+
+			  popup.style.position = 'fixed';
+			  popup.style.zIndex = '56';
+			  popup.style.top = '50%';
+			  popup.style.left = '50%';
+			  popup.style.transform = 'translate(-50%, -50%)';
+			  popup.style.background = 'rgba(0, 0, 0, 0.7)';
+			  popup.style.color = 'white';
+			  popup.style.padding = '10px';
+			  popup.style.borderRadius = '5px';
+
+			  document.body.appendChild(popup);
+
+			  setTimeout(() => {
+				document.body.removeChild(popup);
+			  }, 1000);
+			}
+			
+			function getCurrentID(){
+				var currentURL = window.location.href;
+				const segment=currentURL.split('=');
+				const thisID=segment[1].trim();
+				return thisID;
+			}
+			
+			function getUserData(){
+					var currentURL = window.location.href;
+					const segment=currentURL.split('=');
+					const thisID=segment[1].trim();
+					userId=thisID;
+					isLoggedIn=true;
+					const actualID = thisID;
+					fetch('http://localhost:8081/userInfo', {
+					  method: 'POST',
+					  body: JSON.stringify({ actualID }),
+					  headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					  },
+					})
+					.then((response) => response.json())
+					.then((data) => {
+						parseData(data.message);
+					})
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+			}
+			
+			function parseData(value){
+				const parts = value.split('|');
+				document.getElementById("emailChange").value=parts[0].trim();
+				document.getElementById("firstChange").value=parts[1].trim();
+				if(parts[2].trim() === '[A]'){
+					document.getElementById("lastChange").value=parts[3].trim();
+					document.getElementById("passwordChange").value=parts[4].trim();
+					document.getElementById("pictureChange").value=parts[5].trim();
+				} else {
+					document.getElementById("lastChange").value=parts[2].trim();
+					document.getElementById("passwordChange").value=parts[3].trim();
+					document.getElementById("pictureChange").value=parts[4].trim();
+				}
+				
+			}
+			
+			function toggleLikedMenu(){
+					let likedList = document.getElementById("likedListMenu");
+								if(likedList.classList.contains("open-liked-list")){
+									likedListWrap.innerHTML = '';
+								}
+								likedList.classList.toggle("open-liked-list");
+				}
+			
+			function updateUserProfile(){
+				const emailInput = document.querySelector('input[id="emailChange"]');
+				const firstInput = document.querySelector('input[id="firstChange"]');
+				const lastInput = document.querySelector('input[id="lastChange"]');
+				const passwordInput = document.querySelector('input[id="passwordChange"]');
+				const profileInput = document.querySelector('input[id="pictureChange"]');
+				
+				var currentURL = window.location.href;
+				const segment=currentURL.split('=');
+				const thisID=segment[1].trim();
+				const id = thisID;
+				
+				
+				const email = emailInput.value;
+				const firstName = firstInput.value;
+				
+				const lastName = lastInput.value;
+				
+				const password = passwordInput.value;
+				
+				var picture = profileInput.value;				
+				
+				if (picture === '') {
+					picture = 'none';
+				}
+				
+				if (email === '') {
+					displayPopup('Please enter an email');
+					return;
+				}
+				if (firstName === '') {
+					displayPopup('Please enter you first name');
+					return;
+				}
+				if (lastName === '') {
+					displayPopup('Please enter your last name');
+					return;
+				}
+				if (password === '') {
+					displayPopup('Please enter a password');
+					return;
+				}
+				
+				if(password.length < 6){
+					displayPopup('New password is too short');
+					return;
+				}
+				
+				
+				fetch('http://localhost:8081/update', {
+					method: 'POST',
+					body: JSON.stringify({ id, email, firstName, lastName, password, picture}),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+				  .then((response) => response.json())
+				  .then((data) => {
+						const message = data.message;
+					  if (message.includes('Successfully Updated | ')) {
+						  displayPopup('Successfully Updated');
+						  getUserData();
+						  parseProfilePicture(message);
+						  parseName(message);
+						  checkAdminStatus(id);
+					  } else {
+						  displayPopup('There was an error, try again.');
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+				  
+				  emailInput.value = '';
+				  passwordInput.value = '';
+				  firstInput = '';
+				  lastInput = '';
+				  profileInput = '';
+			}
+			
+			function CloseForgotPasswordPopup(){
+				document.getElementById("forgotPasswordForm").style.display = "none";
+			}
+			
+			function resetPassword(){
+				closeForm();
+				const emailInput = document.querySelector('input[name="ForgotMail"]');
+				const email = emailInput.value;
+				
+				if (email === '') {
+					displayPopup('Please enter an email');
+					return;
+				}
+				
+				fetch('http://localhost:8081/resetPassword', {
+					method: 'POST',
+					body: JSON.stringify({email}),
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json',
+					},
+				})
+				  .then((response) => response.json())
+				  .then((data) => {
+					  if (data.message === 'An email has been sent with your password!') {
+						  CloseForgotPasswordPopup();
+						  displayPopup('An email has been sent with your password!');
+					  } else if (data.message === "There is no account with this email") {
+					 	  displayPopup("There is no account with this email");
+					  } else {
+						  displayPopup('There was an error, try again.');
+					  }
+				  })
+				  .catch((error) => {
+					console.error('Error:', error);
+				  });
+				  
+				  emailInput.value = '';
+			}
+			
+			
+			function startQuestions() {
+			closeEditor();
+			document.getElementById("PopUpFormular").style.display="block";
+			}
+
+			function closeFormular(){
+			document.getElementById("PopUpFormular").style.display="none";
+			}
+
+            const likeButtons = document.querySelectorAll(".card-like-button");
+
+            likeButtons.forEach((button) => {
+                button.addEventListener("click", (event) => {
+                    event.preventDefault(); // Prevent the anchor element from redirecting
+                    button.classList.toggle("is-liked"); // Toggle the 'is-liked' class
+                });
+            });
+			
+			
+
+            $(".arrow:first-of-type").click(
+                function () {
+                    var navwidth = $("#nav");
+                    navwidth.scrollLeft(navwidth.scrollLeft() - 200);
+                }
+            );
+            $(".arrow:nth-of-type(2)").click(
+                function () {
+                    var navwidth = $("#nav");
+                    navwidth.scrollLeft(navwidth.scrollLeft() + 200);
+                }
+            );
+			
+			const editingFields = document.querySelectorAll('.edit-text');
+			const SaveChangesButton = document.getElementById('saveButton');
+			
+			editingFields.forEach(function(editingField){
+				editingField.addEventListener('input', function(){
+					checkFields();
+				});
+			});
+			
+			function checkFields(){
+				let hasModifiedField = false;
+				
+				editingFields.forEach(function(editingField) {
+					if (editingField.value.trim() !== '') {
+					  hasModifiedField = true;
+					}
+				  });
+			  
+			  if (hasModifiedField) {
+				SaveChangesButton.style.display = 'block';
+			  } else {
+				SaveChangesButton.style.display = 'none';
+			  }
+			}
+			
+
+            const sliderLists = document.querySelectorAll(".items");
+
+            // const slider = document.querySelector('.items');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            sliderLists.forEach((slider) => {
+                slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                slider.classList.add('active');
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.classList.remove('active');
+            });
+
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.classList.remove('active');
+            });
+
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;  // stop the fn from running
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 3;
+                slider.scrollLeft = scrollLeft - walk;
+            });
+            });
+        </script>
+    </body>
+</html>

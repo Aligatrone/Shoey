@@ -1,0 +1,1202 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.pageContainer{
+    width: 100%;
+    display: block;
+}
+
+.menuContainer{
+    width: 100%;
+    background: #eceaff;
+    color: #525252;
+    justify-content: center;
+    align-items: center;
+}
+
+.pic{
+    width: auto;
+    height: 30px;
+}
+
+.user_pic{
+    width: auto;
+    height: 30px;
+}
+
+.profile{
+    margin-right: 5%;
+    cursor: pointer;
+}
+
+.menu{
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+.menu img:hover {
+	text-decoration: underline;
+}
+
+.userMenu-pic{
+    width: auto;
+    height: 50px;
+}
+
+.logo-pic{
+    width: auto;
+    height: 50px;
+}
+
+.logo-pic:hover {
+	cursor: pointer;
+} 
+
+.liked{
+    cursor: pointer;
+}
+
+.search-pic{
+    width: auto;
+    vertical-align: middle;
+    height: 18px;
+    padding-left: 14px;
+}
+
+.submitButton{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.searchBar{
+    width: 250px;
+    height: 20px;
+    background-color: white;
+    border-radius: 30px;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+}
+
+.searchForm{
+    position:relative;
+    display: flex;
+}
+
+.searchForm > input {
+    flex: 1;
+    height: 20px;
+    vertical-align: middle;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 15px;
+}
+
+.menuBar{
+    background: #537FE7;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.userMenuWrap{
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+	z-index: 52;
+}
+
+.userMenuWrap.open-menu{
+    max-height: 400px;
+}
+
+.userMenu{
+    background: #E9F8F9;
+    padding: 20px;
+    margin: 10px;
+}
+
+.menuElements{
+    background: #E9F8F9;
+    padding: 20px;
+    margin: 10px;
+}
+
+.userInfo{
+    display: flex;
+    align-items: center;
+}
+
+.userInfo p{
+    font-weight: 500;
+    color: black;
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+.userMenu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #383838;
+    margin: 15px 0 10px;
+}
+
+////
+.subMeniuLink{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+    cursor: pointer;
+}
+
+.saveButton {
+	display: none;
+}
+
+.OptionalLogout{
+	display: flex;
+}
+
+.ProfileOptional{
+	display: none;
+	align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+    cursor: pointer;
+}
+
+#LoginButton{
+	display: flex;
+}
+
+.ProfileOptional span{
+    font-size: 15px;
+    transition: transform 0.5s;
+}
+
+.ProfileOptional p{
+    width: 100%;
+    color: rgb(54, 54, 54);
+    margin: 0 20px;
+}
+
+.ProfileOptional:hover span{
+    transform: translate(5px);
+}
+
+.ProfileOptional:hover p{
+    font-weight: 600;
+}
+
+.subMeniuLink p{
+    width: 100%;
+    color: rgb(54, 54, 54);
+    margin: 0 20px;
+}
+
+.subMeniuLink span{
+    font-size: 15px;
+    transition: transform 0.5s;
+}
+
+#LoginButton:hover {
+	cursor: pointer;
+}
+
+#LoginButton:hover span{
+	transform: translate(5px);
+}
+
+#LoginButton:hover p{
+    font-weight: 600;
+} 
+
+.subMeniuLink:hover span{
+    transform: translate(5px);
+}
+
+.subMeniuLink:hover p{
+    font-weight: 600;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #E9F8F9;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+	z-index: 50;
+  }
+  
+  .buttonss{
+    display: flex;
+    margin-right: 5px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    transition: 0.3s;
+    align-items: center;
+    margin: 12px 0;
+}
+
+.buttonss p{
+    width: 100%;
+    color: rgb(54, 54, 54);
+    margin: 0 20px;
+}
+
+.buttonss:hover p{
+    font-weight: 600;
+}
+
+.buttonss span{
+    margin-left: 30px;
+    transition: transform 0.5s;
+}
+
+.buttonss:hover span{
+    transform: translate(5px);
+}
+
+.butonX:hover a{
+    color:rgb(0, 0, 0);
+}
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    text-decoration: none;
+    color: #818181;
+    font-size: 36px;
+    transition: 0.3s;
+    margin-right: 3px;
+    margin-top: 10px;
+}
+
+.loginPopup {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 40%;
+    z-index: 3;
+  }
+  
+.registerPopup {
+	display: none;
+    position: fixed;
+    top: 10%;
+    left: 40%;
+    z-index: 3;
+}  
+
+.RegisterText h1 {
+	margin-left: 5%;
+}
+  
+  .loginPopup h2 {
+	display: grid;
+	font-size: 15px;
+  }  
+  
+  .loginPopup .register-button {
+    display: grid;
+    vertical-align: middle;
+	border: none;
+	background-color: #E9F8F9;
+	color: #537FE7;
+	padding: 0px;
+  }
+  
+  .loginContainer {
+    max-width: 300px;
+    padding: 10px;
+    background-color: #E9F8F9;
+    border-radius: 12px;
+    box-shadow: 5px 5px 10px grey;
+  }
+  
+  .loginContainer input[type=text], .loginContainer input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0 30px 0;
+    border: none;
+    background: #ffffff;
+    border-radius: 12px;
+  }
+
+  .loginContainer h1{
+    margin-bottom: 20px;
+    margin-left: 30%;
+  }
+  
+  .loginContainer input[type=text]:focus, .loginContainer input[type=password]:focus {
+    outline: none;
+  }
+  
+
+  .loginContainer .btn {
+    background-color: #537FE7;
+    color: #181823;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+  }
+  
+  .loginContainer .btn:hover{
+	  background-color: #C0EEF2;
+  }
+  
+  .loginContainer .cancel {
+    background-color: #e7537f;
+  }
+  
+  .scroll-formular{
+	position: relative;
+	display: none;
+	background: #C0EEF2;
+	margin: 10% auto;
+	margin-top: -275px;
+	border: solid;
+    z-index: 10;
+	border-radius: 50px;
+	padding: 50px;
+	width: 100%;
+	text-align: center;
+	align-items: center;
+}
+
+.Adminwindow {
+	width: 0;
+	height: 0;
+	position: fixed;
+	display: flex;
+	background-color: #ffffff;
+	opacity: 0.9;
+	margin-top: -100px;
+	border: none;
+    z-index: 51;
+	border-radius: 50px;
+	padding: 50px;
+	transition: width 1s, height 1s, margin-top 1s;
+	border-style: ridge;
+}
+
+.ScrollableAdmin{
+	width: 100%;
+	overflow: hidden;
+	overflow-y: scroll;
+	justify-content: center;
+  align-items: center;
+}
+
+#ScrapperLinkField{
+	width: 200%;
+}
+
+.Adminwindow.active {
+  width: 600px;
+  height: 450px;
+  margin-top: 0;
+}
+
+.Adminwindow .exitButton {
+	height: 50px;
+	border: none;
+	margin-right: 75px;
+	margin-left: -25px;
+	background: #ffffff;
+	border-radius: 50%;
+}
+
+.Adminwindow .exitButton:hover{
+	background: #e7537f;
+}
+
+
+.exitButton{
+	background: #C0EEF2;
+	border-style: inset;
+	cursor: grab;
+	top: 0%;
+}
+
+.exitButton:hover {
+	background: #e7537f;
+}
+
+.ImageExit{
+	width: auto;
+	height: 30px;
+}
+
+.Adminwindow .ScrapperButton{
+	margin-top: 100px;
+	margin-left: 65px;
+	width: auto;
+}
+
+.Adminwindow .newEntryButton{
+	margin-left: 65px;
+	width: auto;
+}
+
+#ButtonSubmitNew{
+	display: none;
+}
+
+.AdminOptions {
+  margin-left: -65px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.AdminOptions button {
+	height: 50px;
+	border-radius: 20%;
+	width: auto;
+	background: #C0EEF2;
+}
+
+.AdminOptions input[type="text"]{
+	border-style: solid;
+	background-color: #C0EEF2;
+	border-radius: 15px;
+	font-family: cursive;
+	padding: 5px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-left: 5px;
+	width: 90%;
+	font-family: "Arial", sans-serif;
+	margin-left: 65px;
+}
+
+.AdminOptions input[type="number"]{
+	border-style: solid;
+	background-color: #C0EEF2;
+	border-radius: 15px;
+	font-family: cursive;
+	padding: 5px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-left: 5px;
+	width: 90%;
+	font-family: "Arial", sans-serif;
+	margin-left: 65px;
+}
+
+.AdminOptions input[type="radio"]{
+	border-style: solid;
+	background-color: #C0EEF2;
+	border-radius: 15px;
+	font-family: cursive;
+	padding: 5px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-left: 5px;
+	width: 90%;
+	font-family: "Arial", sans-serif;
+	margin-left: 65px;
+}
+
+
+#SeasonSelection {
+	margin-left: 65px;
+	border-radius: 15px;
+}
+
+#StyleSelection{
+	margin-left: 65px;
+	border-radius: 15px;
+}
+
+#ShoeSizeId{
+	width: 200%;
+	display: none;
+}
+
+.RadioButtons {
+	width: 50%;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+#ColorRadio{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.RadioButtons label{
+	margin-left: 65px;
+}
+
+.ShoeFields {
+	display: none;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.ShoeFields input {
+	width: 150%;
+}
+
+.AdminOptions button:hover {
+	background-color: #e7537f;
+	cursor: pointer;
+}
+
+
+.scroll-editor {
+	width: 50%;
+	position: fixed;
+	display: none;
+	left: 50%;
+	background-color: #ffffff;
+	opacity: 0.9;
+	top: 25%;
+	transform: translate(-50%, -50%);
+	margin: 10% auto;
+	border: none;
+    z-index: 51;
+	border-radius: 50px;
+	padding: 50px;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+}
+
+.EditingMenu {
+	position: relative;
+    top: 0%;
+    max-height: 50000px;
+	align-items: center;
+	text-align: center;
+    overflow: hidden;
+	display: grid;
+	font-family: cursive;
+	justify-content: center;
+	font-size: 30px;
+	padding-bottom: 50px;
+	z-index: 51;
+}
+
+#saveButton {
+	position: fixed;
+	top: 90%;
+	font-size: 20px;
+	width: 150px;
+	border: solid;
+}
+
+#emailChange,
+#firstChange,
+#lastChange,
+#passwordChange,
+#pictureChange {
+	font-family: "Arial", sans-serif;
+}
+
+.scroll-editor button{
+	position: absolute;
+	top: 5%;
+	right: 20%;
+	cursor: grab;
+	margin-left: 750px;
+	background: #ffffff;
+	font-size: 25px;
+	border-style: none;
+	border-radius: 500px;
+	z-index: 52;
+}
+
+.scroll-editor button:hover{
+	background: #e7537f;
+}
+
+.EditingMenu input[type="text"]{
+	border-style: solid;
+	background-color: #C0EEF2;
+	border-radius: 15px;
+	font-family: cursive;
+}
+
+.Adminwindow {
+	width: 100%;
+	height: 60%;
+	display: none;
+	position: fixed;
+	background-color: #ffffff;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0.9;
+	border: none;
+    z-index: 51;
+	border-radius: 50px;
+	padding: 50px;
+	transition: width 1s, height 1s, margin-top 1s;
+	border-style: ridge;
+}
+
+.ScrollableAdmin{
+	display: flex;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+#ScrapperLinkField{
+	width: 200%;
+}
+
+.Adminwindow .exitButton {
+	height: 50px;
+	border: none;
+	margin-right: 75px;
+	margin-left: -25px;
+	background: #ffffff;
+	border-radius: 50%;
+}
+
+.Adminwindow .ScrapperButton{
+	margin-top: 100px;
+	width: auto;
+}
+
+.Adminwindow .newEntryButton{
+	width: auto;
+}
+
+#ButtonSubmitNew{
+	display: none;
+}
+
+.AdminOptions {
+	opacity: 1;
+	display: grid;
+	height: 100%;
+	width: 100%;
+	margin-left: 1%;
+}
+
+.AdminOptions button {
+	height: 50px;
+	border-radius: 20%;
+	width: auto;
+	background: #C0EEF2;
+}
+
+.AdminOptions input[type="text"]{
+	border-style: solid;
+	background-color: #C0EEF2;
+	border-radius: 15px;
+	font-family: cursive;
+	padding: 5px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-left: 5px;
+	width: 90%;
+	font-family: "Arial", sans-serif;
+}
+
+.AdminOptions input[type="number"]{
+	border-style: solid;
+	background-color: #C0EEF2;
+	border-radius: 15px;
+	font-family: cursive;
+	padding: 5px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-left: 5px;
+	width: 90%;
+	font-family: "Arial", sans-serif;
+}
+
+.AdminOptions input[type="radio"]{
+	border-style: solid;
+	background-color: #C0EEF2;
+	border-radius: 15px;
+	font-family: cursive;
+	padding: 5px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-left: 5px;
+	width: 90%;
+	font-family: "Arial", sans-serif;
+}
+
+
+#SeasonSelection {
+	margin-left: 65px;
+	border-radius: 15px;
+}
+
+#StyleSelection{
+	margin-left: 65px;
+	border-radius: 15px;
+}
+
+#ShoeSizeId{
+	width: 200%;
+	display: none;
+}
+
+.RadioButtons {
+	width: 50%;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+#ColorRadio{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.RadioButtons label{
+	margin-left: 65px;
+}
+
+.ShoeFields {
+	display: none;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.ShoeFields input {
+	width: 150%;
+}
+
+.AdminOptions button:hover {
+	background-color: #e7537f;
+	cursor: pointer;
+}
+
+#thumbnailId{
+	height: 500px;
+	width: 500px;
+}
+
+.gallery{
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.lower-image{
+	height: 150px;
+	width: 150px;
+	margin-left: 20px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	border-style: outset;
+}
+
+.Organizer{
+	display: grid;
+	width: 100%;
+}
+
+.thumbnailClass{
+	height: 350px;
+	width: 350px; 
+	margin-bottom: 50px; 
+	border-style: outset;
+}
+
+.thumbnail {
+  width: 300px;
+  height: auto;
+}
+
+.images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-left: 50px;
+}
+
+.images .thumbnail-image {
+  width: 100px; 
+  height: auto;
+  margin-right: 10px; 
+}
+
+.thumbnail:hover{
+	cursor: pointer;
+}
+
+.images:hover {
+	cursor: pointer;
+}
+
+.expanded-image{
+	position: fixed;
+	top: 5%;
+	justify-content: center;
+	align-items: center;
+	border-style: groove;
+	border-radius: 20px;
+}
+
+
+.Information{
+	padding-top: 5%;
+	background: #C0EEF2;
+	border-radius: 10%;
+	width: 100%;
+	bottom: 0;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	border-style: groove;
+}
+
+.ProductInfo {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+		overflow: hidden;
+    }
+	
+.Information p{
+	 font-size: 50px;
+	 font-weight: bold;
+     text-decoration: underline;
+}	
+
+.rating-container{
+	display: none;
+	align-items: center;
+	justify-content: center;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+  font-size: 24px;
+  color: #000000;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.star {
+  display: inline-block;
+  font-size: 30px;
+}
+
+.star.selected,
+.star:hover,
+.star.selected ~ .star,
+.star:hover ~ .star {
+  color: #ffcc00;
+}
+
+.star.lit {
+  color: #ffcc00;
+}
+
+.like-icon {
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.like-icon:hover{
+	border-bottom: solid;
+}
+
+.MainName{
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.AvailableSizes{
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.MainName #ProductName{
+	font-size:60px;
+	font-weight: bold;
+    text-decoration: underline;
+}
+
+.AvailableSizes #ProductSizes{
+	font-size:30px;
+	font-weight: bold;
+    text-decoration: underline;
+}
+
+.details{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
+}
+
+.details-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 5px;
+}
+
+.key {
+  font-size: 50px;
+	 font-weight: bold;
+     text-decoration: underline;
+}
+
+.value {
+  margin: 0;
+  font-size: 40px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.go-to-seller-button{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #525252;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.go-to-seller-button:hover{
+	background: #e7537f;
+}
+
+.ProductEditWindow{
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 10%;
+	width: 100%;
+	height: 75%;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50px;
+	background-color: #ffffff;
+	border-style: ridge;
+	z-index:56;
+}
+
+.ScrollableAdminEdit{
+	overflow: hidden;
+	overflow-y: scroll;
+	border: solid;
+	width: 95%;
+	height: 85%;
+}
+
+.ProductEditWindow .exitButton{
+	top: 10px;
+	position: absolute;
+	z-index: 52;
+	left: 48.7%;
+	border: none;
+	border-radius:50%;
+	background-color: #ffffff;
+}
+
+.ProductEditWindow .exitButton:hover{
+	background: #e7537f;
+}
+
+#editButton,
+#deleteButton
+{
+	border-radius: 30%;
+	background: #537FE7;
+	font-weight: bold;
+	font-size: 25px;
+	width: 50%;
+}
+
+#editButton:hover,
+#deleteButton:hover{
+	background: #e7537f;
+}
+
+.ProductChange{
+	text-align: center;
+	align-items: center;
+	display: grid;
+	width: 100%;
+	font-size: 20px;
+}
+
+.ProductChange input{
+	background: #eceaff;
+	border-radius: 10%;
+}
+
+#ConfirmDeleteId{
+	background: #eceaff;
+	border-radius: 10%;
+	width: 100%;
+}
+
+.ProductConfirm input{
+	width: 100%;
+	background: #eceaff;
+	border-radius: 10%;
+	font-size: 20px;
+}
+
+.ProductConfirm{
+	display: grid;
+	width: 100%;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #E9F8F9;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+	z-index: 50;
+  }
+
+  .seasonNav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 300px;
+    background-color: #E9F8F9;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+	  z-index: 50;
+  }
+
+  .catNav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 300px;
+    background-color: #E9F8F9;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+	  z-index: 50;
+  }
+  
+  
+  
+  .likedListWrap{
+    position: absolute;
+	display: grid;
+    top: 100%;
+    right: 12.5%;
+    width: 400px;
+    max-height: 300px;
+	height: 0px;
+    overflow: hidden;
+    overflow-y: scroll;
+    transition: height 0.5s;
+	z-index: 999;
+	background-color: #E9F8F9;
+  }
+  
+
+.likedListWrap.open-liked-list{
+    height: 300px;
+  }
+  
+  .likedList{
+	 display: flex;
+	background-color: #E9F8F9;
+    padding: 20px 20px 10px 20px;
+    margin-left: 10px;
+	height: 100%;
+  }
+
+  .likedListLink {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  
+.likedList img{
+	height: 90px;
+	width: 90px;
+	margin-right: 25px;
+	margin-top: 7px;
+}
+
+.likedList p {
+	font-size: 20px;
+	margin-left: 15px;
+}
+
+.likedList:hover {
+  cursor: pointer;
+}
+
+.likedList p#productName {
+  /* Existing styles */
+}
+
+.likedList:hover p#productName {
+  text-decoration: underline;
+}
+
+.sharethis-container{
+	z-index:1;
+}

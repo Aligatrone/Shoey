@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>FoSA</title>
+    <link rel="stylesheet" href="documentation.css">
+    <script src="js/scholarly.min.js"></script>
+  </head>
+  <body prefix="schema: http://schema.org">
+    <header>
+      <h1>Footwear Smart Assistant</h1>
+    </header>
+
+    <div role="contentinfo">
+        <ol role="directory">
+            <li>
+                <a href="#introduction">
+                    <span>1. </span>
+                    Introducere
+                </a>
+            </li>
+
+            <li>
+              <a href="#description">
+                <span>2. </span>
+                Descriere
+              </a>
+            </li>
+
+            <li>
+              <a href="#interface">
+                <span>3. </span>
+                Interfata
+              </a>
+
+              <ol role="directory">
+                <li>
+                  <a href="#mainPage">
+                    <span>3.1. </span>
+                    Pagina principala
+                  </a>
+
+                  <ol>
+                    <li>
+                      <a href="#menuBar">
+                        <span>3.1.1. </span>
+                        Bara de meniu
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="#formSection">
+                        <span>3.1.2. </span>
+                        Sectiunea formularului
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="#recomandedSection">
+                        <span>3.1.3. </span>
+                        Sectiunea cu recomandari
+                      </a>
+                    </li>
+                  </ol>
+                </li>
+
+                <li>
+                  <a href="#productPage">
+                    <span>3.2. </span>
+                    Pagina produsului
+                  </a>
+                </li>
+              </ol>
+            </li>
+
+            <li>
+              <a href="#caracteristici">
+                <span>4. </span>
+                Caracteristici
+              </a>
+
+              <ol>
+                <li>
+                  <a href="#caracteristiciCont">
+                    <span>4.1. </span>
+                    Utilizarea unui cont
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#caracteristiciForm">
+                    <span>4.2. </span>
+                    Utilizarea unui chestionar 
+                  </a>
+                </li>
+              </ol>
+            </li>
+
+            <li>
+              <a href="#arhitectura">
+                <span>5. </span>
+                Arhitectura aplicatiei
+              </a>
+            </li>
+              
+            <li>
+              <a href="#bibliografie">
+                <span>6. </span>
+                Bibliografie
+              </a>
+            </li>
+        </ol>
+      <dl>
+        <dt>Autori</dt>
+        <dd>
+          <a href="https://github.com/Aligatrone">Antip Andrei Ionut</a>
+          <br>
+          <a href="https://github.com/ElenitaMLG">Prunoiu Cristina Elena</a>
+          <br>
+          <a href="https://github.com/MetasixRO">Ciobanu Vlad</a>
+        </dd>
+
+        <dt>Repository proiect</dt>
+        <dd>
+            <a href="https://github.com/MetasixRO/Proiect-Tehnologii-Web">FoSA (Footwear Smart Assistant)</a>
+        </dd>
+      </dl>
+    </div>
+
+    <section id="introduction" role="doc-introduction">
+        <h2>
+          <span>1.</span>
+          Introducere
+        </h2>
+        <p>
+          Aplicatia ajuta un client sa-si gaseasca perechea potrivita de papuci pe baza unui chestionar realizat pentru a asigura faptul ca produsul satisface necesitatile clientului.
+        </p>
+    </section>
+
+    <section id="description" role="doc-introduction">
+      <h2>
+        <span>2.</span>
+        Descriere
+      </h2>
+      <p>
+        Aplicatia este reprezentata de un website care contine o colectie de perechi de papuci extrasi de pe websiteuri de specialitate,
+        aceasta are principalul rol de a ajuta utilizatorul sa-si gaseasca perechea potrivita de incaltaminte dupa cerintele acestuia precum: marime, cromatica,
+        brand, sezon, tendinte ale modei, etc.
+      </p>
+
+      <p>
+        Pe langa un formular pe care utiliaztorul il poate completa exista si sectiuni de recomandari dupa anumite criterii iar prechile de papuci care se potrivesc
+        cu preferintele utilizatorul avand o prioritate mai mare.
+      </p>
+  </section>
+
+  <section id="interface" role="doc-introduction">
+    <h2>
+      <span>3.</span>
+      Interfata
+    </h2>
+    <p>
+        Site-ul contine pagina principala, si o pagina in care poti fi vizualizate perechi de papuci individual.
+    </p>
+
+    <section id="mainPage" role="doc-introduction">
+      <h3>
+        <span>3.1.</span>
+        Pagina principala
+      </h3>
+
+      <p>
+        Aceasta contine majoritatea functionalitatilor site-ului si fiind impartita in 3 sectiuni: Bara de meniu care se gaseste si pe pagina produselor,
+        sectiunea in care se poate lua si completa un formular si sectiunea cu recomandari.
+      </p>
+
+      <section id="menuBar" role="doc-introduction">
+        <h4>
+          <span>3.1.1.</span>
+          Bara de meniu
+        </h4>
+
+        <p>Contine elemente precum: sectiunea de cautare, logo-ul site-ului; precum si butoanele: profil care deschide un meniu cu actiuni
+          specifice unui profil al unui utilizator, butonul de favorite care contine o lista cu produse care au fost adaugate ca favorite si
+          butonul care deschide un meniu ce contine posibile moduri in care pot fi sortate perechile de papuci.
+        </p>
+
+        <img src="imagesDocumentation/menuBar.png" class="pic">
+
+        <img src="imagesDocumentation/menuLeft.png" class="pic">
+
+        <img src="imagesDocumentation/likedList.png" class="picLiked">
+
+        <img src="imagesDocumentation/profileTab.png" class="picLiked">
+
+        <img src="imagesDocumentation/loginTab.png" class="picLiked">
+      </section>
+
+      <section id="formSection" role="doc-introduction">
+        <h4>
+          <span>3.1.2.</span>
+          Sectiunea formularului
+        </h4>
+  
+        <p>
+          Un buton odata ce este apasat deschide un pop-up cu un formular,
+           dupa completarea formularului vor aparea una sau mai multe recomandari dupa intrebarile la care utilizatorul a raspuns.
+        </p>
+  
+        <img src="imagesDocumentation/findNowDiv.png" class="pic">
+  
+        <img src="imagesDocumentation/findNowForm.png" class="pic">
+      </section>
+  
+      <section id="recomandedSection" role="doc-introduction">
+        <h4>
+          <span>3.1.3.</span>
+          Sectiunea cu recomandari
+        </h4>
+  
+        <p>
+          Aceasta contine multiple liste cu produse pe anumite categorii: sezon, tendinte, evenimente; dar si influentate de preferintele utilizatorului.
+        </p>
+  
+        <p>
+          Fiecare produs are un buton prin care acesta va fi adaugat la favorite, dar si prin apasarea pe produs va duce pe pagina produsului.
+        </p>
+  
+        <img src="imagesDocumentation/recomandedDiv.png" class="pic">
+      </section>
+    </section>
+
+    <section id="productPage" role="doc-introduction">
+
+    
+    <h3>
+      <span>3.2.</span>
+      Pagina produsului
+    </h3>
+
+    <p>
+      Pe langa multiple poze cu produsul si mai multe informatii despre acesta, utilizatorul poate oferi un rating, poate selecta si culoarea si marimea papucilor
+      si sa vada daca sunt disponibile perechi cu aceste detalii, poate merge pe pagina produsului original dar si sa distribuie produsul respectiv pe platforme de
+      socializare.
+    </p>
+
+    <img src="imagesDocumentation/productPage.png" class="pic">
+
+  </section>
+
+  
+</section>
+
+<section id="caracteristici" role="doc-introduction">
+  <h2>
+    <span>4.</span>
+    Caracteristici
+  </h2>
+  <p>
+      <section id="caracteristiciCont" role="doc-introduction">
+        <h3>
+          <span>4.1.</span>
+          Utilizarea unui cont
+        </h3>
+          <p> Utilizatorului i se ofera optiunea de a crea un cont in cazul in care nu detine deja unul. Prin utilizarea unui cont clientul are posibilitatea de a partaja lista de produse salvate intre mai multe dispozitive. In acelasi timp, in functie de produsele vizionate sau salvate ca si favorite, clientului i se vor afisa recomandari care se potrivesc cu produsele mentionate anterior.
+          </p>
+      </section>
+
+      <section id="caracteristiciForm" role="doc-introduction">
+        <h3> 
+          <span>4.2.</span>
+          Utilizarea unui chestionar 
+        </h3>
+          <p>
+              Fiecare client, detinator de cont sau nu, are posibilitatea de a completa un formular cu scopul identificarii unei perechi de papuci care sa corespunda cerintelor sale. In cadrul formularului sunt adresate multiple intrebari detaliate pentru a afla toate detaliile referitoare la necesitatile unui client, pornind de la tipul de activitate pentru care sunt utilizati papucii, nivelul de suport si de confort necesar, sfarsindu-se cu marimea dorita. In acest mod este asigurat faptul ca fiecarui client i se recomanda o pereche de papuci corespunzatoare.
+          </p>
+      </section>
+  </p>
+
+</section>
+  
+<section id="arhitectura" role="doc-introduction">
+  <h2>
+    <span>5.</span>
+    Arhitectura aplicatiei
+  </h2>
+
+  <img src="imagesDocumentation/arhitectura.png" class="picArh">
+</section>
+
+  <section id="bibliografie" role="doc-introduction">
+    <h2>
+      <span>6.</span>
+      Bibliografie
+    </h2>
+    
+    <dl>
+      <dt>Paleta de culori</dt>
+
+      <dd>
+        <cite>
+          <a href="https://colorhunt.co/">ColorHunt</a>
+        </cite>
+      </dd>
+
+      <dt>Tutoriale FrontEnd</dt>
+
+      <dd>
+        <cite>
+          <a href="https://www.w3schools.com/">w3schools</a>
+        </cite>
+      </dd>
+
+      <dt>Template documentatie</dt>
+
+      <dd>
+        <cite>
+          <a href="https://w3c.github.io/scholarly-html/">Scholarly HTML</a>
+        </cite>
+      </dd>
+
+      <dt>User-Based Collaborative Filtering</dt>
+
+      <dd>
+        <cite>
+          <a href="https://www.geeksforgeeks.org/user-based-collaborative-filtering/">geeksforgeeks</a>
+        </cite>
+      </dd>
+    </dl>
+</section>
+  </body>
+</html>
